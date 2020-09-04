@@ -1,5 +1,5 @@
 const DEPRECIATION_RATES = [
-  15, 12, 12, 12, 12
+  15, 14, 13, 12, 11
 ]
 
 const INSURANCE_EXPENSES = [
@@ -27,9 +27,18 @@ const MAINTENANCE_EXPENSES = [
   3602, 4201, 6607, 4604, 6803
 ]
 
-const FIXED_INSURANCE = [
-  1530, 1530, 1530, 1530, 1530
-]
+const FIXED_INSURANCE = 1530
+
+const NAMING = {
+  totalInsurance: 'Страховка',
+  totalMaintenance: 'Обслуживание',
+  totalRepairs: 'Ремонт',
+  totalTaxExpenses: 'Налоги',
+  totalPlateExpenses: 'Оформление',
+  totalDepreciation: 'Потеря стоимости',
+  totalFuelConsumption: 'Топливо',
+  costOfOwn: 'Стоимость владения'
+}
 
 export {
   DEPRECIATION_RATES,
@@ -39,5 +48,6 @@ export {
   TAX,
   MAINTENANCE_EXPENSES,
   REPAIR_EXPENSES,
-  ALL_FUELS
+  ALL_FUELS,
+  NAMING
 }

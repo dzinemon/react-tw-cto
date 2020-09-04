@@ -9,6 +9,7 @@ import CarTable from './components/CarTable';
 import CarDataGrid from './components/CarDataGrid';
 
 import Cars from './AUDI_A4.json';
+import './App.css';
 
 import {
   DEPRECIATION_RATES,
@@ -22,16 +23,13 @@ import {
 } from './hardcoded';
 
 function App() {
-  console.log(Cars)
 
   function handleChange(e) {
     e.preventDefault();
-    // console.log(e.target.value);
     updateCar(e.target.value)
   }
 
   function handleCheckClick(e) {
-    // console.log(e.target.value);
     setInsurance(!hasFullInsurance);
   }
 
@@ -50,11 +48,10 @@ function App() {
 
   const [ fuel, setFuel ] = useState(currentCar.designation.includes('TFSI') ? 'petrol' : 'diesel' )
 
-  const [ hasFullInsurance, setInsurance] = useState(false)
+  const [ hasFullInsurance, setInsurance] = useState(true)
 
   function updateCar(el) {
     let updatedCar = Cars.filter(i => i.designation === el);
-    console.log(updatedCar)
     setModel(updatedCar[0].model);
     setAFC(updatedCar[0].average_fuel_consumption);
     setConfiguration(updatedCar[0].configuration);
@@ -112,7 +109,7 @@ const lossOfPriceArr = DEPRECIATION_RATES.map(i => {
 
 // insurance
 const insuranceExpenses = INSURANCE_EXPENSES.map((i, idx) => {
-  const baseFixedIns = 1350;
+  const baseFixedIns = FIXED_INSURANCE;
   let insIndex;
 
   if (horsepower <= 70) {
@@ -180,10 +177,12 @@ const residualPrice = lossOfPriceArr[lossOfPriceArr.length - 1].valueOfACar
       />
       <CarInfoBar 
         manufacturer={manufacturer}
+        horsepower={horsepower}
         model={model} 
         configuration={configuration}
         designation={designation}
       />
+
       <CarTable 
         manufacturer={manufacturer}
         model={model} 
@@ -203,6 +202,7 @@ const residualPrice = lossOfPriceArr[lossOfPriceArr.length - 1].valueOfACar
         costOfOwn={costOfOwn}
       />
       <CarDataGrid 
+        hasFullInsurance={hasFullInsurance}
         handleCheckClick={handleCheckClick}
       />
       <hr className="mt-20"></hr>

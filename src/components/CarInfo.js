@@ -6,7 +6,6 @@ import SelectDropdown from './SelectDropdown'
 
 function CarInfo(props) {
 
-  console.log(props.price)
   let currentPriceStr = formatNumber(props.price)
   let currentCostOfOwn = formatNumber(props.costOfOwn)
   let currentResidualPrice = formatNumber(props.residualPrice)
@@ -14,8 +13,8 @@ function CarInfo(props) {
   return (
     <div className="xl:container mx-auto">
     <div className="px-4 my-4">
-      <h1 className="font-semibold text-lg sm:text-3xl text-gray-700">Стоимость владения <u>{props.designation} {props.horsepower} л.с.</u></h1>
-  <span className="text-gray-600 hover:underline hover:text-blue-500">Подробнее об {props.designation}</span><span className="text-blue-500"></span>
+      <h1 className="font-semibold text-lg sm:text-3xl text-gray-700">Стоимость владения <u>{props.designation} <span className="text-gray-500">{props.horsepower} л.с.</span></u></h1>
+      <span className="text-gray-600 hover:underline hover:text-blue-500">Подробнее об {props.designation}</span><span className="text-blue-500"></span>
     </div>
     
     <div className="flex flex-wrap">

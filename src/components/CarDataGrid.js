@@ -16,11 +16,13 @@ function CarDataGrid(props) {
               id="kasko" 
               type="checkbox" 
               className="border border-gray-500 px-2 py-1 rounded mx-1 align-middle"
-              onClick={props.handleCheckClick}  
+              onChange={props.handleCheckClick}  
+              checked={(props.hasFullInsurance)}
             />
           </div>
           <div>
-            <label className="leading-none text-xs" htmlFor="kasko">ОСАГО</label><input disabled checked id="kasko" type="checkbox" className="border border-gray-500 px-2 py-1 rounded mx-1 align-middle"/>
+            <label className="leading-none text-xs" htmlFor="kasko">ОСАГО</label>
+            <input defaultChecked id="kasko" type="checkbox" className="border border-gray-500 px-2 py-1 rounded mx-1 align-middle"/>
           </div>
         </div>
       </div>

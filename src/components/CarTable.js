@@ -1,12 +1,9 @@
 import React from 'react'
 import formatNumber from '../utils/formatNumber'
 
+import CarChart from './CarChart';
+
 import {
-  DEPRECIATION_RATES,
-  INSURANCE_EXPENSES,
-  FUEL_CONS_CHANGE,
-  FIXED_INSURANCE,
-  TAX,
   MAINTENANCE_EXPENSES,
   REPAIR_EXPENSES
 } from '../hardcoded';
@@ -105,69 +102,101 @@ return acc + Number(cur)
       <td className="p-2 font-semibold" key={idx.toString()} >{formatNumber(i)}</td>
     )
   });
+
+  const AllCosts = [
+    {name: 'totalInsurance',
+      value: totalInsurance  
+    },
+    {name: 'totalMaintenance',
+      value: totalMaintenance  
+    },
+    {name: 'totalRepairs',
+      value: totalRepairs  
+    },
+    {name: 'totalTaxExpenses',
+      value: totalTaxExpenses  
+    },
+    {name: 'totalPlateExpenses',
+      value: totalPlateExpenses  
+    },
+    {name: 'totalDepreciation',
+      value: totalDepreciation  
+    },
+    {name: 'totalFuelConsumption',
+      value: totalFuelConsumption  
+    }
+  ]
+
+  const sortedCosts = AllCosts.sort((a, b) => b.value - a.value)
   
   return (
-    <div className="xl:container mx-auto overflow-scroll">
-    <section className="px-4 mt-6">
-      <table className="table-auto text-sm sm:text-base w-full bg-gray-100 border-gray-200 border-2 rounded overflow-hidden border-collapse">
-        <thead className="font-semibold bg-gray-200">
-          <tr>
-            <td className="p-2"></td>
-            <td className="p-2 w-32">1-ый год</td>
-            <td className="p-2 w-32">2-й год</td>
-            <td className="p-2 w-32">3-й год</td>
-            <td className="p-2 w-32">4-й год</td>
-            <td className="p-2 w-32">5-й год</td>
-            <td className="p-2 font-bold w-32">Всего</td>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td className="p-2 font-semibold">Страховка <span className="text-xs text-gray-600">{props.hasFullInsurance && `ОСАГО и КАСКО`} {!props.hasFullInsurance && `ОСАГО`}</span></td>
-            {insuranceTDs}
-            <td className="p-2 font-semibold">{formatNumber(totalInsurance)}</td>
-          </tr>
-          <tr className="bg-gray-200">
-            <td className="p-2 font-semibold">Обслуживание</td>
-            {maintenanceTDs}
-            <td className="p-2 font-semibold">{formatNumber(totalMaintenance)}</td>
-          </tr>
-          <tr>
-            <td className="p-2 font-semibold">Ремонт</td>
-            {repairsTDs}
-            <td className="p-2 font-semibold">{formatNumber(totalRepairs)}</td>
-          </tr>
-          <tr className="bg-gray-200">
-            <td className="p-2 font-semibold">Налоги</td>
-            {taxExpensesTDs}
-            <td className="p-2 font-semibold">{formatNumber(totalTaxExpenses)}</td>
-          </tr>
-          <tr>
-            <td className="p-2 font-semibold">Оформление</td>
-            {plateExpensesTDs}
-            <td className="p-2 font-semibold">{formatNumber(totalPlateExpenses)}</td>
-          </tr>
-          <tr className="bg-gray-200">
-            <td className="p-2 font-semibold">Потеря Стоимости</td>
-            {depreciationTDs}
-            <td className="p-2 font-semibold">{formatNumber(totalDepreciation)}</td>
-          </tr>
-          <tr>
-            <td className="p-2 font-semibold">Топливо</td>
-            {fuelConsumptionTDs}
-            <td className="p-2 font-semibold">{formatNumber(totalFuelConsumption)}</td>
-          </tr>
-        </tbody>
-        <tfoot className="bg-gray-200">
-          <tr>
-            <td className="font-bold p-2 font-bold">Общая Стоимость Владения</td>
-            {fiveYearTDs}
-            <td className="p-2 font-bold">{formatNumber(costOfOwn)}</td>
-          </tr>
-        </tfoot>
-      </table>
-      <p className="text-xs text-gray-600 my-4">* Данные основаны для 5 лет Владения и пробеге 15,000 км в год.</p>
-    </section>
+    <div>
+      <CarChart 
+        costOfOwn={costOfOwn}
+        sortedCosts={sortedCosts}
+      />
+      <div className="xl:container mx-auto overflow-scroll">
+      <section className="px-4 mt-6">
+        <table className="table-auto text-sm sm:text-base w-full bg-gray-100 border-gray-200 border-2 rounded overflow-hidden border-collapse">
+          <thead className="font-semibold bg-gray-200">
+            <tr>
+              <td className="p-2"></td>
+              <td className="p-2 w-32">1-ый год</td>
+              <td className="p-2 w-32">2-й год</td>
+              <td className="p-2 w-32">3-й год</td>
+              <td className="p-2 w-32">4-й год</td>
+              <td className="p-2 w-32">5-й год</td>
+              <td className="p-2 font-bold w-32">Всего</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td className="p-2 font-semibold">Страховка <span className="text-xs text-gray-600">{props.hasFullInsurance && `ОСАГО и КАСКО`} {!props.hasFullInsurance && `ОСАГО`}</span></td>
+              {insuranceTDs}
+              <td className="p-2 font-semibold">{formatNumber(totalInsurance)}</td>
+            </tr>
+            <tr className="bg-gray-200">
+              <td className="p-2 font-semibold">Обслуживание</td>
+              {maintenanceTDs}
+              <td className="p-2 font-semibold">{formatNumber(totalMaintenance)}</td>
+            </tr>
+            <tr>
+              <td className="p-2 font-semibold">Ремонт</td>
+              {repairsTDs}
+              <td className="p-2 font-semibold">{formatNumber(totalRepairs)}</td>
+            </tr>
+            <tr className="bg-gray-200">
+              <td className="p-2 font-semibold">Налоги</td>
+              {taxExpensesTDs}
+              <td className="p-2 font-semibold">{formatNumber(totalTaxExpenses)}</td>
+            </tr>
+            <tr>
+              <td className="p-2 font-semibold">Оформление</td>
+              {plateExpensesTDs}
+              <td className="p-2 font-semibold">{formatNumber(totalPlateExpenses)}</td>
+            </tr>
+            <tr className="bg-gray-200">
+              <td className="p-2 font-semibold">Потеря Стоимости</td>
+              {depreciationTDs}
+              <td className="p-2 font-semibold">{formatNumber(totalDepreciation)}</td>
+            </tr>
+            <tr>
+              <td className="p-2 font-semibold">Топливо</td>
+              {fuelConsumptionTDs}
+              <td className="p-2 font-semibold">{formatNumber(totalFuelConsumption)}</td>
+            </tr>
+          </tbody>
+          <tfoot className="bg-gray-200">
+            <tr>
+              <td className="font-bold p-2 font-bold">Общая Стоимость Владения</td>
+              {fiveYearTDs}
+              <td className="p-2 font-bold">{formatNumber(costOfOwn)}</td>
+            </tr>
+          </tfoot>
+        </table>
+        <p className="text-xs text-gray-600 my-4">* Данные основаны для 5 лет Владения и пробеге 15,000 км в год.</p>
+      </section>
+      </div>
     </div>
   )
 }

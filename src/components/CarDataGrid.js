@@ -22,7 +22,7 @@ function CarDataGrid(props) {
           </div>
           <div>
             <label className="leading-none text-xs" htmlFor="kasko">ОСАГО</label>
-            <input defaultChecked id="kasko" type="checkbox" className="border border-gray-500 px-2 py-1 rounded mx-1 align-middle"/>
+            <input disabled defaultChecked id="kasko" type="checkbox" className="border border-gray-500 px-2 py-1 rounded mx-1 align-middle"/>
           </div>
         </div>
       </div>

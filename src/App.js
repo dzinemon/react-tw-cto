@@ -7,6 +7,7 @@ import CarInfo from './components/CarInfo';
 import CarInfoBar from './components/CarInfoBar';
 import CarTable from './components/CarTable';
 import CarDataGrid from './components/CarDataGrid';
+import useWindowDimensions from './hooks/useWindowDimensions';
 
 import Cars from './AUDI_A4.json';
 import './App.css';
@@ -22,16 +23,21 @@ import {
   ALL_FUELS
 } from './hardcoded';
 
+
 function App() {
 
+  
   function handleChange(e) {
     e.preventDefault();
     updateCar(e.target.value)
   }
-
+  
   function handleCheckClick(e) {
     setInsurance(!hasFullInsurance);
   }
+  const { height, width } = useWindowDimensions();
+
+  let isMobile = (width < 640)? true : false;
 
   const manufacturer = 'Audi'
 
@@ -43,8 +49,6 @@ function App() {
   const [ designation, setDesignation ] = useState(currentCar.designation)
   const [ price, setPrice ] = useState(currentCar.price)
   const [ horsepower, setHorsepower ] = useState(currentCar.horsepower)
-
-  // const fuelType = currentCar.designation.inc
 
   const [ fuel, setFuel ] = useState(currentCar.designation.includes('TFSI') ? 'petrol' : 'diesel' )
 
@@ -105,8 +109,6 @@ const lossOfPriceArr = DEPRECIATION_RATES.map(i => {
   return { valueOfACar, depreciationAmount }
 });
 
-
-
 // insurance
 const insuranceExpenses = INSURANCE_EXPENSES.map((i, idx) => {
   const baseFixedIns = FIXED_INSURANCE;
@@ -154,18 +156,15 @@ const residualPrice = lossOfPriceArr[lossOfPriceArr.length - 1].valueOfACar
   return (
     <div className="App">
       <Nav />
+      <div>
+        width: {width} ~ height: {height}
+      </div>
       <Breadcrumbs 
         manufacturer={manufacturer}
         model={model} 
-        average_fuel_consumption={average_fuel_consumption}
-        configuration={configuration}
         designation={designation}
-        price={price} 
       />
-      <CarInfo 
-        manufacturer={manufacturer}
-        model={model} 
-        average_fuel_consumption={average_fuel_consumption}
+      <CarInfo
         configuration={configuration}
         designation={designation}
         price={price}
@@ -176,23 +175,14 @@ const residualPrice = lossOfPriceArr[lossOfPriceArr.length - 1].valueOfACar
         residualPrice={residualPrice}
       />
       <CarInfoBar 
-        manufacturer={manufacturer}
         horsepower={horsepower}
-        model={model} 
-        configuration={configuration}
         designation={designation}
+        configuration={configuration}
       />
 
-      <CarTable 
-        manufacturer={manufacturer}
-        model={model} 
-        average_fuel_consumption={average_fuel_consumption}
-        configuration={configuration}
-        designation={designation}
-        price={price} 
+      <CarTable
+        isMobile={isMobile}
         hasFullInsurance={hasFullInsurance}
-        horsepower={horsepower}
-
         taxExpensesArray={taxExpensesArray}
         plateExpensesArray={plateExpensesArray}
         fuelConsumptionArray={fuelConsumptionArray}

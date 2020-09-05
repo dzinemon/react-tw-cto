@@ -27,7 +27,7 @@ const MAINTENANCE_EXPENSES = [
   3602, 4201, 6607, 4604, 6803
 ]
 
-const FIXED_INSURANCE = 1530
+const FIXED_INSURANCE = 1280
 
 const NAMING = {
   totalInsurance: 'Страховка',

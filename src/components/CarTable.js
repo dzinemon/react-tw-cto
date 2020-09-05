@@ -132,6 +132,7 @@ return acc + Number(cur)
   return (
     <div>
       <CarChart 
+        isMobile={props.isMobile}
         costOfOwn={costOfOwn}
         sortedCosts={sortedCosts}
       />

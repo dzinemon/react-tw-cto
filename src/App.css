@@ -21,14 +21,14 @@
 }
 
 .chart-bar {
-  height: 52px;
+  /* height: 52px; */
 }
 
 .chart-wrap.horizontal {
-  height: 186px;
+  height: 182px;
 }
 
 .chart-wrap.vertical {
   height: 360px;
-  width: 322px;
+  width: 310px;
 }

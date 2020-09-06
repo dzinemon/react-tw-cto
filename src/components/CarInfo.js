@@ -9,6 +9,7 @@ function CarInfo(props) {
   let currentPriceStr = formatNumber(props.price)
   let currentCostOfOwn = formatNumber(props.costOfOwn)
   let currentResidualPrice = formatNumber(props.residualPrice)
+  let perKm = formatNumber(props.perKm)
 
   return (
     <div className="xl:container mx-auto">
@@ -47,7 +48,7 @@ function CarInfo(props) {
             </div>
             <div className="w-1/2 pb-2 bg-gray-200 p-2">
               <p className="text-lg text-gray-700 leading-none font-light">
-                Цена нового автомобиля (прайс)
+                Цена нового автомобиля
               </p>
               <div className="text-gray-800 text-xl sm:text-3xl font-bold">
                 {currentPriceStr} <span className="text-gray-500 text-lg">грн</span>
@@ -55,10 +56,18 @@ function CarInfo(props) {
             </div>
             <div className="w-1/2 pb-2 bg-gray-300 p-2">
               <p className="text-lg text-gray-800 leading-none font-light">
-                Цена автомобиля после 5-и лет владения
+                Стоимость после 5-и лет
               </p>
               <div className="text-gray-800 text-xl sm:text-3xl font-bold">
                 {currentResidualPrice} <span className="text-gray-500 text-lg">грн</span>
+              </div>
+            </div>
+            <div className="w-1/2 pb-2 bg-blue-100 p-2">
+              <p className="text-lg text-blue-900 leading-none font-light">
+                Стоимость 1 км
+              </p>
+              <div className="text-blue-800 text-xl sm:text-3xl font-bold">
+                {perKm} <span className="text-gray-500 text-lg">грн</span>
               </div>
             </div>
           </div>

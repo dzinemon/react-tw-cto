@@ -153,6 +153,12 @@ const costOfOwn = fiveyearsArray.reduce((acc, cur) => {
 
 const residualPrice = lossOfPriceArr[lossOfPriceArr.length - 1].valueOfACar
 
+// calculate 1 km 
+
+const irretrievablyLost = costOfOwn + price - residualPrice;
+
+const perKm = (irretrievablyLost/75000).toFixed(2)
+
   return (
     <div className="App">
       <Nav />
@@ -173,6 +179,7 @@ const residualPrice = lossOfPriceArr[lossOfPriceArr.length - 1].valueOfACar
         handleChange={handleChange}
         costOfOwn={costOfOwn}
         residualPrice={residualPrice}
+        perKm={perKm}
       />
       <CarInfoBar 
         horsepower={horsepower}

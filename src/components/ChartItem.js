@@ -36,7 +36,7 @@ function ChartItem(props) {
           <div className="text-xs sm:text-sm leading-none relative sm:w-40">
             {NAMING[parameterName]}
           </div>
-          <span className="text-xs text-gray-700 relative sm:w-40">{formatNumber(parameter)} <span className="text-gray-500">грн</span></span>
+          <span className="text-xs font-bold text-gray-800 relative sm:w-40">{formatNumber(parameter)} <span className="text-gray-500">грн</span></span>
         </div>
       </div>
     </div>

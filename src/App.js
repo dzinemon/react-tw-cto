@@ -35,7 +35,7 @@ function App() {
   function handleCheckClick(e) {
     setInsurance(!hasFullInsurance);
   }
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
   let isMobile = (width < 640)? true : false;
 
@@ -156,9 +156,9 @@ const residualPrice = lossOfPriceArr[lossOfPriceArr.length - 1].valueOfACar
   return (
     <div className="App">
       <Nav />
-      <div>
+      {/* <div>
         width: {width} ~ height: {height}
-      </div>
+      </div> */}
       <Breadcrumbs 
         manufacturer={manufacturer}
         model={model} 

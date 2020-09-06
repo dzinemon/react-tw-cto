@@ -104,30 +104,31 @@ return acc + Number(cur)
   });
 
   const AllCosts = [
+    {name: 'totalDepreciation',
+      value: totalDepreciation  
+    },
+    {name: 'totalPlateExpenses',
+      value: totalPlateExpenses  
+    },
     {name: 'totalInsurance',
       value: totalInsurance  
     },
     {name: 'totalMaintenance',
       value: totalMaintenance  
     },
-    {name: 'totalRepairs',
-      value: totalRepairs  
+    {name: 'totalFuelConsumption',
+      value: totalFuelConsumption  
     },
     {name: 'totalTaxExpenses',
       value: totalTaxExpenses  
     },
-    {name: 'totalPlateExpenses',
-      value: totalPlateExpenses  
-    },
-    {name: 'totalDepreciation',
-      value: totalDepreciation  
-    },
-    {name: 'totalFuelConsumption',
-      value: totalFuelConsumption  
+     {name: 'totalRepairs',
+      value: totalRepairs  
     }
   ]
 
-  const sortedCosts = AllCosts.sort((a, b) => b.value - a.value)
+  // const sortedCosts = AllCosts.sort((a, b) => b.value - a.value)
+  const sortedCosts = AllCosts;
   
   return (
     <div>
@@ -195,7 +196,7 @@ return acc + Number(cur)
             </tr>
           </tfoot>
         </table>
-        <p className="text-xs text-gray-600 my-4">* Данные основаны для 5 лет Владения и пробеге 15,000 км в год.</p>
+        <p className="text-xs text-gray-600 my-4">* Данные основаны на 5-ти летнем сроке владения и пробеге 15,000 км в год.</p>
       </section>
       </div>
     </div>

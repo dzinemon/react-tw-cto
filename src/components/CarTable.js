@@ -2,46 +2,26 @@ import React from 'react'
 import formatNumber from '../utils/formatNumber'
 
 import CarChart from './CarChart';
+import CarTableRow from './CarTableRow';
 
 import {
   MAINTENANCE_EXPENSES,
-  REPAIR_EXPENSES
+  REPAIR_EXPENSES,
+  NAMING
 } from '../hardcoded';
 
 function CarTable(props) {
+
+  const { hasFullInsurance } = props
 // tax
 const taxExpensesArray = props.taxExpensesArray;
-  const taxExpensesTDs = taxExpensesArray.map((i, idx) => {
-    return (
-      <td className="p-2" key={idx.toString()}>{formatNumber(i)}</td>
-    )
-  })
 
 const totalTaxExpenses = taxExpensesArray.reduce((acc, cur) => {
   return acc + Number(cur)
-}, 0)
-
-// license plate
-
-const plateExpensesArray = props.plateExpensesArray;
-
-const plateExpensesTDs = plateExpensesArray.map((i, idx) => {
-  return (
-    <td className="p-2" key={idx.toString()}>{formatNumber(i)}</td>
-  )
-})
-
-const totalPlateExpenses = plateExpensesArray.reduce((acc, cur) => {
-return acc + Number(cur)
-}, 0)
+}, 605)
 
 // fuel
   const fuelConsumptionArray = props.fuelConsumptionArray;
-  const fuelConsumptionTDs = fuelConsumptionArray.map((i, idx) => {
-    return (
-      <td className="p-2" key={idx.toString()} >{formatNumber(i)}</td>
-    )
-  })
 
   const totalFuelConsumption = fuelConsumptionArray.reduce((acc, cur) => {
     return acc + Number(cur)
@@ -49,22 +29,14 @@ return acc + Number(cur)
   
 // depreciation
   const lossOfPriceArr = props.lossOfPriceArr;
-  const depreciationTDs = lossOfPriceArr.map((i,idx) => {
-    return (
-      <td className="p-2" key={idx.toString()} >{formatNumber(i.depreciationAmount)}</td>
-    )
-  });
 
   const totalDepreciation = lossOfPriceArr.reduce((acc, cur) => {
     return acc + Number(cur.depreciationAmount)
   }, 0);
 
-// maintenance  
-  const maintenanceTDs = MAINTENANCE_EXPENSES.map((i,idx) => {
-    return (
-      <td className="p-2" key={idx.toString()} >{formatNumber(i)}</td>
-    )
-  });
+  const depreciationArray = lossOfPriceArr.map(i => i.depreciationAmount)
+
+// maintenance
 
   const totalMaintenance = MAINTENANCE_EXPENSES.reduce((acc, cur) => {
     return acc + Number(cur)
@@ -73,22 +45,12 @@ return acc + Number(cur)
 // insurance
 
   const insuranceExpenses = props.insuranceExpenses
-  const insuranceTDs = insuranceExpenses.map((i, idx) => {
-    return (
-      <td className="p-2" key={idx.toString()} >{formatNumber(i)}</td>
-    )
-  })
 
   const totalInsurance = insuranceExpenses.reduce((acc, cur) => {
     return acc + Number(cur)
   }, 0)
 
 // repairs
-  const repairsTDs = REPAIR_EXPENSES.map((i,idx) => {
-    return (
-      <td className="p-2" key={idx.toString()} >{formatNumber(i)}</td>
-    )
-  });
 
   const totalRepairs = REPAIR_EXPENSES.reduce((acc, cur) => {
     return acc + Number(cur)
@@ -104,31 +66,46 @@ return acc + Number(cur)
   });
 
   const AllCosts = [
-    {name: 'totalDepreciation',
-      value: totalDepreciation  
+    {
+      name: 'totalDepreciation',
+      value: totalDepreciation,
+      array: depreciationArray
     },
-    {name: 'totalPlateExpenses',
-      value: totalPlateExpenses  
+    {
+      name: 'totalInsurance',
+      value: totalInsurance,
+      array: insuranceExpenses
     },
-    {name: 'totalInsurance',
-      value: totalInsurance  
+    {
+      name: 'totalMaintenance',
+      value: totalMaintenance,
+      array: MAINTENANCE_EXPENSES
     },
-    {name: 'totalMaintenance',
-      value: totalMaintenance  
+    {
+      name: 'totalFuelConsumption',
+      value: totalFuelConsumption,
+      array: fuelConsumptionArray
     },
-    {name: 'totalFuelConsumption',
-      value: totalFuelConsumption  
+    {
+      name: 'totalTaxExpenses',
+      value: totalTaxExpenses,
+      array: taxExpensesArray
     },
-    {name: 'totalTaxExpenses',
-      value: totalTaxExpenses  
-    },
-     {name: 'totalRepairs',
-      value: totalRepairs  
+     {
+      name: 'totalRepairs',
+      value: totalRepairs,
+      array: REPAIR_EXPENSES
     }
   ]
 
   // const sortedCosts = AllCosts.sort((a, b) => b.value - a.value)
   const sortedCosts = AllCosts;
+
+  const tableRows = AllCosts.map((i, idx) => {
+    return (
+      <CarTableRow hasFullInsurance={hasFullInsurance} key={idx} index={idx + 1} currentArray={i.array} currentName={NAMING[i.name]} currentValue={i.value} />
+    )
+  })
   
   return (
     <div>
@@ -152,41 +129,13 @@ return acc + Number(cur)
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="p-2 font-semibold">Страховка <span className="text-xs text-gray-600">{props.hasFullInsurance && `ОСАГО и КАСКО`} {!props.hasFullInsurance && `ОСАГО`}</span></td>
+          {tableRows}
+            {/* <tr>
+              <td className="p-2 font-semibold">{NAMING['totalInsurance']} </td>
               {insuranceTDs}
               <td className="p-2 font-semibold">{formatNumber(totalInsurance)}</td>
-            </tr>
-            <tr className="bg-gray-200">
-              <td className="p-2 font-semibold">Обслуживание</td>
-              {maintenanceTDs}
-              <td className="p-2 font-semibold">{formatNumber(totalMaintenance)}</td>
-            </tr>
-            <tr>
-              <td className="p-2 font-semibold">Ремонт</td>
-              {repairsTDs}
-              <td className="p-2 font-semibold">{formatNumber(totalRepairs)}</td>
-            </tr>
-            <tr className="bg-gray-200">
-              <td className="p-2 font-semibold">Налоги</td>
-              {taxExpensesTDs}
-              <td className="p-2 font-semibold">{formatNumber(totalTaxExpenses)}</td>
-            </tr>
-            <tr>
-              <td className="p-2 font-semibold">Оформление</td>
-              {plateExpensesTDs}
-              <td className="p-2 font-semibold">{formatNumber(totalPlateExpenses)}</td>
-            </tr>
-            <tr className="bg-gray-200">
-              <td className="p-2 font-semibold">Потеря Стоимости</td>
-              {depreciationTDs}
-              <td className="p-2 font-semibold">{formatNumber(totalDepreciation)}</td>
-            </tr>
-            <tr>
-              <td className="p-2 font-semibold">Топливо</td>
-              {fuelConsumptionTDs}
-              <td className="p-2 font-semibold">{formatNumber(totalFuelConsumption)}</td>
-            </tr>
+            </tr> */}
+            
           </tbody>
           <tfoot className="bg-gray-200">
             <tr>

@@ -30,11 +30,11 @@ const MAINTENANCE_EXPENSES = [
 const FIXED_INSURANCE = 1280
 
 const NAMING = {
-  totalInsurance: 'Страховка',
+  totalInsurance: 'Страхование',
   totalMaintenance: 'Обслуживание',
   totalRepairs: 'Ремонт',
-  totalTaxExpenses: 'Налоги',
-  totalPlateExpenses: 'Оформление',
+  totalTaxExpenses: 'Налоги и Оформление',
+  // totalPlateExpenses: 'Оформление',
   totalDepreciation: 'Потеря стоимости',
   totalFuelConsumption: 'Топливо',
   costOfOwn: 'Стоимость владения'

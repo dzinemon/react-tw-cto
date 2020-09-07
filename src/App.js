@@ -87,10 +87,6 @@ function App() {
   taxExpensesArray[0] = (taxToPayPension(taxFreeAmount)).toFixed(0);
   taxExpensesArray.fill(0, 1);
 
-  // license plate 
-  const plateExpensesArray = new Array(5);
-  plateExpensesArray[0] = 605;
-  plateExpensesArray.fill(0, 1);
 // fuel
 
 const fuelConsumptionArray = FUEL_CONS_CHANGE.map(i => {
@@ -140,7 +136,7 @@ const fiveYears = () => {
   let totalPerYear = new Array(5)
   totalPerYear.fill(0,0)
   return totalPerYear.map((i, idx) => {
-    return Number(REPAIR_EXPENSES[idx]) + Number(insuranceExpenses[idx]) + Number(MAINTENANCE_EXPENSES[idx]) + Number(lossOfPriceArr[idx].depreciationAmount) + Number(fuelConsumptionArray[idx]) + Number(taxExpensesArray[idx]) + plateExpensesArray[idx]
+    return Number(REPAIR_EXPENSES[idx]) + Number(insuranceExpenses[idx]) + Number(MAINTENANCE_EXPENSES[idx]) + Number(lossOfPriceArr[idx].depreciationAmount) + Number(fuelConsumptionArray[idx]) + Number(taxExpensesArray[idx])
   })
 }
 
@@ -159,6 +155,8 @@ const irretrievablyLost = costOfOwn + price - residualPrice;
 
 const perKm = (irretrievablyLost/75000).toFixed(2)
 
+
+  document.title = `${designation} Cost to own - get full list of expenses`
   return (
     <div className="App">
       <Nav />
@@ -191,7 +189,6 @@ const perKm = (irretrievablyLost/75000).toFixed(2)
         isMobile={isMobile}
         hasFullInsurance={hasFullInsurance}
         taxExpensesArray={taxExpensesArray}
-        plateExpensesArray={plateExpensesArray}
         fuelConsumptionArray={fuelConsumptionArray}
         lossOfPriceArr={lossOfPriceArr}
         insuranceExpenses={insuranceExpenses}

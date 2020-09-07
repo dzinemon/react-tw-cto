@@ -115,7 +115,7 @@ const totalTaxExpenses = taxExpensesArray.reduce((acc, cur) => {
         sortedCosts={sortedCosts}
       />
       <div className="xl:container mx-auto overflow-scroll">
-      <section className="px-4 mt-6">
+      <section className="px-4">
         <table className="table-auto text-sm sm:text-base w-full bg-gray-100 border-gray-200 border-2 rounded overflow-hidden border-collapse">
           <thead className="font-semibold bg-gray-200">
             <tr>
@@ -129,13 +129,7 @@ const totalTaxExpenses = taxExpensesArray.reduce((acc, cur) => {
             </tr>
           </thead>
           <tbody>
-          {tableRows}
-            {/* <tr>
-              <td className="p-2 font-semibold">{NAMING['totalInsurance']} </td>
-              {insuranceTDs}
-              <td className="p-2 font-semibold">{formatNumber(totalInsurance)}</td>
-            </tr> */}
-            
+          {tableRows}            
           </tbody>
           <tfoot className="bg-gray-200">
             <tr>

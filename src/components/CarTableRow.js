@@ -21,7 +21,7 @@ function CarTableRow(props) {
         {(currentName === 'Страхование') && <InsuranceData hasFullInsurance={hasFullInsurance} />}
       </td>
       {currentArrayTDs}
-      <td className="p-2 font-semibold">{currentValue}</td>
+      <td className="p-2 font-semibold">{formatNumber(currentValue)}</td>
     </tr>
   )
 }

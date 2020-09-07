@@ -9,6 +9,8 @@ import CarTable from './components/CarTable';
 import CarDataGrid from './components/CarDataGrid';
 import useWindowDimensions from './hooks/useWindowDimensions';
 
+import taxesToPay from './utils/taxesToPay'
+
 import Cars from './AUDI_A4.json';
 import './App.css';
 
@@ -17,15 +19,18 @@ import {
   INSURANCE_EXPENSES,
   FUEL_CONS_CHANGE,
   FIXED_INSURANCE,
-  TAX,
+  // TAX,
   MAINTENANCE_EXPENSES,
   REPAIR_EXPENSES,
-  ALL_FUELS
+  ALL_FUELS,
+  PARKING_EXPENSES
 } from './hardcoded';
-
 
 function App() {
 
+  function calculateParking(e) {
+    setParking(e.target.value)
+  }
   
   function handleChange(e) {
     e.preventDefault();
@@ -43,15 +48,21 @@ function App() {
 
   const currentCar = Cars[0]
 
+  const [ parking, setParking ] = useState('free')
+
+  const parkingExpenses = (parking === 'free')? 0 : PARKING_EXPENSES * 12
+  const parkingExpensesArray = new Array(5);
+  parkingExpensesArray.fill(parkingExpenses);
+  // const finalExpensesArray = parkingExpensesArray.map(i => parkingExpenses)
+
+
   const [ model, setModel ] = useState(currentCar.model)
   const [ average_fuel_consumption, setAFC ] = useState(currentCar.average_fuel_consumption)
   const [ configuration, setConfiguration ] = useState(currentCar.configuration)
   const [ designation, setDesignation ] = useState(currentCar.designation)
   const [ price, setPrice ] = useState(currentCar.price)
   const [ horsepower, setHorsepower ] = useState(currentCar.horsepower)
-
   const [ fuel, setFuel ] = useState(currentCar.designation.includes('TFSI') ? 'petrol' : 'diesel' )
-
   const [ hasFullInsurance, setInsurance] = useState(true)
 
   function updateCar(el) {
@@ -65,26 +76,9 @@ function App() {
     setFuel(updatedCar[0].designation.includes('TFSI') ? 'petrol' : 'diesel');
   }
 
-
   // tax
-  const taxAmount = (price * 20 / (100 + 20)).toFixed(0);
-
-  const taxFreeAmount = price - taxAmount;
-
-  const taxToPayPension = (tax) => {
-    if (tax < 346830) {
-      
-      return TAX[0] * tax / 100
-    } else if ( 346830 <= tax && tax < 609580) {
-      
-      return TAX[1] * tax / 100
-    } else if (tax >= 609580) {
-      
-      return TAX[2] * tax / 100
-    }
-  }
   const taxExpensesArray = new Array(5);
-  taxExpensesArray[0] = (taxToPayPension(taxFreeAmount)).toFixed(0);
+  taxExpensesArray[0] = taxesToPay(price);
   taxExpensesArray.fill(0, 1);
 
 // fuel
@@ -132,18 +126,24 @@ const insuranceExpenses = INSURANCE_EXPENSES.map((i, idx) => {
 
 // calculate Each Year
 
-const fiveYears = () => {
+const eachYearExpenses = () => {
   let totalPerYear = new Array(5)
   totalPerYear.fill(0,0)
   return totalPerYear.map((i, idx) => {
-    return Number(REPAIR_EXPENSES[idx]) + Number(insuranceExpenses[idx]) + Number(MAINTENANCE_EXPENSES[idx]) + Number(lossOfPriceArr[idx].depreciationAmount) + Number(fuelConsumptionArray[idx]) + Number(taxExpensesArray[idx])
+    return (
+      Number(REPAIR_EXPENSES[idx]) + 
+      Number(insuranceExpenses[idx]) + 
+      Number(MAINTENANCE_EXPENSES[idx]) + 
+      Number(lossOfPriceArr[idx].depreciationAmount) + 
+      Number(fuelConsumptionArray[idx]) + 
+      Number(taxExpensesArray[idx]))
   })
 }
 
-const fiveyearsArray = fiveYears();
+const eachYearExpensesArray = eachYearExpenses();
 
 // cost of own 
-const costOfOwn = fiveyearsArray.reduce((acc, cur) => {
+const costOfOwn = eachYearExpensesArray.reduce((acc, cur) => {
   return acc + Number(cur)
 }, 0);
 
@@ -192,12 +192,16 @@ const perKm = (irretrievablyLost/75000).toFixed(2)
         fuelConsumptionArray={fuelConsumptionArray}
         lossOfPriceArr={lossOfPriceArr}
         insuranceExpenses={insuranceExpenses}
-        fiveyearsArray={fiveyearsArray}
+        eachYearExpensesArray={eachYearExpensesArray}
         costOfOwn={costOfOwn}
       />
       <CarDataGrid 
         hasFullInsurance={hasFullInsurance}
         handleCheckClick={handleCheckClick}
+
+        calculateParking={calculateParking}
+        parking={parking}
+        parkingExpensesArray={parkingExpensesArray}
       />
       <hr className="mt-20"></hr>
       <Footer />

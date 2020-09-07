@@ -37,32 +37,35 @@ function CarInfo(props) {
               </div>
             </div>
           </div>
-          <div className="my-6 flex flex flex-wrap">
-            <div className="w-1/2 pb-2 bg-gray-100 p-2">
+          <div className="my-6 grid grid-cols-2 gap-2">
+            <div className="pb-2 bg-gray-400 p-2 rounded">
               <p className="text-lg text-gray-600 leading-none font-light">
-                Стоимость владения
+                Стоимость владения <sup>*</sup>
               </p>
               <div className="text-gray-800 text-xl sm:text-3xl font-bold">
                 {currentCostOfOwn} <span className="text-gray-500 text-lg">грн</span>
               </div>
+              <div className="text-xs leading-none text-gray-800"><sup>*</sup> Все затраты на содержание</div>
             </div>
-            <div className="w-1/2 pb-2 bg-gray-200 p-2">
-              <p className="text-lg text-gray-700 leading-none font-light">
-                Цена нового автомобиля
+            <div className="pb-2 bg-blue-800 p-2 rounded">
+              <p className="text-lg text-white leading-none font-light">
+                Цена нового автомобиля <sup>**</sup>
               </p>
-              <div className="text-gray-800 text-xl sm:text-3xl font-bold">
-                {currentPriceStr} <span className="text-gray-500 text-lg">грн</span>
+              <div className="text-blue-100 text-xl sm:text-3xl font-bold">
+                {currentPriceStr} <span className="text-gray-100 text-lg">грн</span>
               </div>
+              <div className="text-xs leading-none text-gray-100"><sup>**</sup> Цена авто в автосалоне</div>
             </div>
-            <div className="w-1/2 pb-2 bg-gray-300 p-2">
+            <div className="pb-2 bg-gray-100 p-2 border border-blue-200 rounded">
               <p className="text-lg text-gray-800 leading-none font-light">
-                Стоимость после 5-и лет
+                Стоимость после 5-и лет <sup>***</sup>
               </p>
               <div className="text-gray-800 text-xl sm:text-3xl font-bold">
                 {currentResidualPrice} <span className="text-gray-500 text-lg">грн</span>
               </div>
+              <div className="text-xs leading-none text-gray-800"><sup>***</sup> Выгода при продаже</div>
             </div>
-            <div className="w-1/2 pb-2 bg-blue-100 p-2">
+            <div className="pb-2 bg-gray-100 p-2 border border-blue-200 rounded">
               <p className="text-lg text-blue-900 leading-none font-light">
                 Стоимость 1 км
               </p>

@@ -16,7 +16,7 @@ function CarTableRow(props) {
 
   
   return (
-    <tr className={`${index%2 === 0? 'bg-gray-200' : 'bg-gray-100' }`}>
+    <tr className={`${index%2 === 0? 'bg-gray-100' : 'bg-gray-200' }`}>
       <td className="p-2 font-semibold">{currentName}
         {(currentName === 'Страхование') && <InsuranceData hasFullInsurance={hasFullInsurance} />}
       </td>

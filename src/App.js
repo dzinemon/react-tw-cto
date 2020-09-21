@@ -23,13 +23,18 @@ import {
   MAINTENANCE_EXPENSES,
   REPAIR_EXPENSES,
   ALL_FUELS,
-  PARKING_EXPENSES
+  PARKING_EXPENSES,
+  CARWASH_EXPENSES
 } from './hardcoded';
 
 function App() {
 
   function calculateParking(e) {
     setParking(e.target.value)
+  }
+
+  function setNumberOfCarWash(e) {
+    setCarWash(e.target.value)
   }
   
   function handleChange(e) {
@@ -49,13 +54,24 @@ function App() {
   const currentCar = Cars[0]
 
   const [ parking, setParking ] = useState('free')
+  const [ carwash, setCarWash ] = useState(0)
 
   const parkingExpenses = (parking === 'free')? 0 : PARKING_EXPENSES * 12
   const parkingExpensesArray = new Array(5);
   parkingExpensesArray.fill(parkingExpenses);
-  // const finalExpensesArray = parkingExpensesArray.map(i => parkingExpenses)
+
+  const otherExpensesArray = [];
+  const carwashExpensesArray = new Array(5);
+
+  const carwashExpenses = (carwash < 1)? 0 : CARWASH_EXPENSES * 12 * carwash
+  carwashExpensesArray.fill(carwashExpenses);
+
+  [0,0,0,0,0].map((e,idx) => {
+    return otherExpensesArray.push(carwashExpensesArray[idx] + parkingExpensesArray[idx]);
+  });
 
 
+  // const [ otherExpenses, setOtherExpenses ] = useState(0)
   const [ model, setModel ] = useState(currentCar.model)
   const [ average_fuel_consumption, setAFC ] = useState(currentCar.average_fuel_consumption)
   const [ configuration, setConfiguration ] = useState(currentCar.configuration)
@@ -134,9 +150,10 @@ const eachYearExpenses = () => {
       Number(REPAIR_EXPENSES[idx]) + 
       Number(insuranceExpenses[idx]) + 
       Number(MAINTENANCE_EXPENSES[idx]) + 
-      Number(lossOfPriceArr[idx].depreciationAmount) + 
+      // Number(lossOfPriceArr[idx].depreciationAmount) + 
       Number(fuelConsumptionArray[idx]) + 
-      Number(taxExpensesArray[idx]))
+      Number(taxExpensesArray[idx])) + 
+      Number(otherExpensesArray[idx])
   })
 }
 
@@ -194,14 +211,18 @@ const perKm = (irretrievablyLost/75000).toFixed(2)
         insuranceExpenses={insuranceExpenses}
         eachYearExpensesArray={eachYearExpensesArray}
         costOfOwn={costOfOwn}
+        parkingExpensesArray={parkingExpensesArray}
+        otherExpensesArray={otherExpensesArray}
       />
       <CarDataGrid 
         hasFullInsurance={hasFullInsurance}
         handleCheckClick={handleCheckClick}
-
+        setNumberOfCarWash={setNumberOfCarWash}
         calculateParking={calculateParking}
         parking={parking}
+        carwash={carwash}
         parkingExpensesArray={parkingExpensesArray}
+        otherExpensesArray={otherExpensesArray}
       />
       <hr className="mt-20"></hr>
       <Footer />

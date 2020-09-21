@@ -48,7 +48,9 @@ function CarDataGrid(props) {
           parkingExpensesArray={props.parkingExpensesArray}
         />
 
-        <CarWash />
+        <CarWash 
+          carwash={props.carwash}
+          setNumberOfCarWash={props.setNumberOfCarWash}/>
         <Alarms />
         <Wheels />
 

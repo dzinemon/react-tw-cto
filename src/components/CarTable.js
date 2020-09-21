@@ -17,9 +17,11 @@ function CarTable(props) {
     hasFullInsurance,
     taxExpensesArray,
     fuelConsumptionArray,
-    lossOfPriceArr,
+    // lossOfPriceArr,
+    // parkingExpensesArray,
     insuranceExpenses,
     eachYearExpensesArray,
+    otherExpensesArray,
     costOfOwn
   } = props;
   // tax
@@ -29,11 +31,11 @@ function CarTable(props) {
   const totalFuelConsumption = sumTheArray(fuelConsumptionArray);
 
   // depreciation
-  const totalDepreciation = lossOfPriceArr.reduce((acc, cur) => {
-    return acc + Number(cur.depreciationAmount);
-  }, 0);
+  // const totalDepreciation = lossOfPriceArr.reduce((acc, cur) => {
+  //   return acc + Number(cur.depreciationAmount);
+  // }, 0);
 
-  const depreciationArray = lossOfPriceArr.map((i) => i.depreciationAmount);
+  // const depreciationArray = lossOfPriceArr.map((i) => i.depreciationAmount);
 
   // maintenance
   const totalMaintenance = sumTheArray(MAINTENANCE_EXPENSES);
@@ -43,6 +45,9 @@ function CarTable(props) {
 
   // repairs
   const totalRepairs = sumTheArray(REPAIR_EXPENSES);
+
+  //other expenses
+  const totalOtherExpenses = sumTheArray(otherExpensesArray)
 
   // calculate Each Year
   const fiveYearTDs = eachYearExpensesArray.map((i, idx) => {
@@ -55,11 +60,6 @@ function CarTable(props) {
 
   const AllCosts = [
     {
-      name: "totalDepreciation",
-      value: totalDepreciation,
-      array: depreciationArray,
-    },
-    {
       name: "totalInsurance",
       value: totalInsurance,
       array: insuranceExpenses,
@@ -70,6 +70,11 @@ function CarTable(props) {
       array: MAINTENANCE_EXPENSES,
     },
     {
+      name: "totalRepairs",
+      value: totalRepairs,
+      array: REPAIR_EXPENSES,
+    },
+    {
       name: "totalFuelConsumption",
       value: totalFuelConsumption,
       array: fuelConsumptionArray,
@@ -78,18 +83,24 @@ function CarTable(props) {
       name: "totalTaxExpenses",
       value: totalTaxExpenses,
       array: taxExpensesArray,
-    },
-    {
-      name: "totalRepairs",
-      value: totalRepairs,
-      array: REPAIR_EXPENSES,
-    },
+    }
+    
   ];
+  let sortedCosts;
+  if (totalOtherExpenses > 0) {
+     sortedCosts = [...AllCosts, {
+      name: "totalOtherExpenses",
+      value: totalOtherExpenses,
+      array: otherExpensesArray,
+    }]
+  } else {
+     sortedCosts = AllCosts;
+  }
 
   // const sortedCosts = AllCosts.sort((a, b) => b.value - a.value)
-  const sortedCosts = AllCosts;
+  // const sortedCosts = AllCosts;
 
-  const tableRows = AllCosts.map((i, idx) => {
+  const tableRows = sortedCosts.map((i, idx) => {
     return (
       <CarTableRow
         hasFullInsurance={hasFullInsurance}

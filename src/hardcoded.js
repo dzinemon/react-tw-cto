@@ -29,6 +29,8 @@ const MAINTENANCE_EXPENSES = [
 
 const PARKING_EXPENSES = 1500
 
+const CARWASH_EXPENSES = 120
+
 const FIXED_INSURANCE = 1280
 
 const NAMING = {
@@ -39,7 +41,8 @@ const NAMING = {
   // totalPlateExpenses: 'Оформление',
   totalDepreciation: 'Потеря стоимости',
   totalFuelConsumption: 'Топливо',
-  costOfOwn: 'Стоимость владения'
+  costOfOwn: 'Стоимость владения',
+  totalOtherExpenses: 'Прочие расходы'
 }
 
 export {
@@ -52,5 +55,6 @@ export {
   REPAIR_EXPENSES,
   ALL_FUELS,
   NAMING,
-  PARKING_EXPENSES
+  PARKING_EXPENSES,
+  CARWASH_EXPENSES
 }

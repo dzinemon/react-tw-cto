@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 // import logo from './logo.svg';
-import Nav from './components/Nav';
-import Breadcrumbs from './components/Breadcrumbs';
-import Footer from './components/Footer';
-import CarInfo from './components/CarInfo';
-import CarInfoBar from './components/CarInfoBar';
-import CarTable from './components/CarTable';
-import CarDataGrid from './components/CarDataGrid';
-import useWindowDimensions from './hooks/useWindowDimensions';
+import Nav from "./components/Nav";
+import Breadcrumbs from "./components/Breadcrumbs";
+import Footer from "./components/Footer";
+import CarInfo from "./components/CarInfo";
+import CarInfoBar from "./components/CarInfoBar";
+import CarTable from "./components/CarTable";
+import CarDataGrid from "./components/CarDataGrid";
+import useWindowDimensions from "./hooks/useWindowDimensions";
 
-import taxesToPay from './utils/taxesToPay'
+import taxesToPay from "./utils/taxesToPay";
 
-import calculateWheelsExpenses from './utils/calculateWheelsExpenses'
+import calculateWheelsExpenses from "./utils/calculateWheelsExpenses";
 
-import Cars from './AUDI_A4.json';
-import './App.css';
+import Cars from "./AUDI_A4.json";
+import "./App.css";
 
 import {
   DEPRECIATION_RATES,
@@ -26,94 +26,103 @@ import {
   REPAIR_EXPENSES,
   ALL_FUELS,
   CARWASH_EXPENSES,
-  PLATE_EXPENSES
-} from './hardcoded';
+  PLATE_EXPENSES,
+} from "./hardcoded";
 
 function App() {
-
-  
-
   function updateParkingPrice(e) {
-    if (!isNaN(+e.target.value) && (+e.target.value) < 50000 ) {
+    if (!isNaN(+e.target.value) && +e.target.value < 50000) {
       setParkingPrice(e.target.value);
     }
   }
 
   function calculateParking(e) {
-    setParking(e.target.value)
-    if (parking === 'free') {
+    setParking(e.target.value);
+    if (parking === "free") {
       setParkingPrice(0);
     }
   }
 
   function calculateWheels(e) {
-    setWheels(e.target.value)
+    setWheels(e.target.value);
   }
 
   function setNumberOfCarWash(e) {
-    setCarWash(e.target.value)
+    setCarWash(e.target.value);
   }
-  
+
   function handleChange(e) {
     e.preventDefault();
-    updateCar(e.target.value)
+    updateCar(e.target.value);
   }
-  
+
   function handleCheckClick(e) {
     setInsurance(!hasFullInsurance);
   }
   const { width } = useWindowDimensions();
 
-  let isMobile = (width < 640)? true : false;
+  let isMobile = width < 640 ? true : false;
 
-  const manufacturer = 'Audi'
+  const manufacturer = "Audi";
+  const vehicleType = "car";
+  const wheelSize = "R18";
 
-  const vehicleType = 'car'
-  const wheelSize = 'R18'
+  const currentCar = Cars[0];
 
-  const currentCar = Cars[0]
+  const [parkingPrice, setParkingPrice] = useState(0);
+  const [parking, setParking] = useState("free");
+  const [carwash, setCarWash] = useState(0);
+  const [wheels, setWheels] = useState("tyresNo");
 
-  const [ parkingPrice, setParkingPrice ] = useState(0)
-  const [ parking, setParking ] = useState('free')
-  const [ carwash, setCarWash ] = useState(0)
-  const [ wheels, setWheels ] = useState('tyresNo')
-
-  const parkingExpenses = (parking === 'free')? 0 : parkingPrice * 12
+  const parkingExpenses = parking === "free" ? 0 : parkingPrice * 12;
   const parkingExpensesArray = new Array(5);
   parkingExpensesArray.fill(parkingExpenses);
 
   const otherExpensesArray = [];
   const carwashExpensesArray = new Array(5);
 
-  const carwashExpenses = (carwash < 1)? 0 : CARWASH_EXPENSES * 12 * carwash
+  const carwashExpenses = carwash < 1 ? 0 : CARWASH_EXPENSES * 12 * carwash;
   carwashExpensesArray.fill(carwashExpenses);
 
-  const wheelsExpenses = calculateWheelsExpenses(vehicleType, wheelSize, wheels);
+  const wheelsExpenses = calculateWheelsExpenses(
+    vehicleType,
+    wheelSize,
+    wheels
+  );
 
-  [0,0,0,0,0].map((e,idx) => {
-    let cur = ((carwashExpensesArray[idx] + parkingExpensesArray[idx] + wheelsExpenses[idx]) * ((idx * 0.02) + 1)).toFixed(0)
+  [0, 0, 0, 0, 0].map((e, idx) => {
+    let cur = (
+      (carwashExpensesArray[idx] +
+        parkingExpensesArray[idx] +
+        wheelsExpenses[idx]) *
+      (idx * 0.02 + 1)
+    ).toFixed(0);
     return otherExpensesArray.push(cur);
   });
 
   // const [ otherExpenses, setOtherExpenses ] = useState(0)
-  const [ model, setModel ] = useState(currentCar.model)
-  const [ average_fuel_consumption, setAFC ] = useState(currentCar.average_fuel_consumption)
-  const [ configuration, setConfiguration ] = useState(currentCar.configuration)
-  const [ designation, setDesignation ] = useState(currentCar.designation)
-  const [ price, setPrice ] = useState(currentCar.price)
-  const [ horsepower, setHorsepower ] = useState(currentCar.horsepower)
-  const [ fuel, setFuel ] = useState(currentCar.designation.includes('TFSI') ? 'petrol' : 'diesel' )
-  const [ hasFullInsurance, setInsurance] = useState(true)
+  const [model, setModel] = useState(currentCar.model);
+  const [average_fuel_consumption, setAFC] = useState(
+    currentCar.average_fuel_consumption
+  );
+  const [configuration, setConfiguration] = useState(currentCar.configuration);
+  const [designation, setDesignation] = useState(currentCar.designation);
+  const [price, setPrice] = useState(currentCar.price);
+  const [horsepower, setHorsepower] = useState(currentCar.horsepower);
+  const [fuel, setFuel] = useState(
+    currentCar.designation.includes("TFSI") ? "petrol" : "diesel"
+  );
+  const [hasFullInsurance, setInsurance] = useState(true);
 
   function updateCar(el) {
-    let updatedCar = Cars.filter(i => i.designation === el);
+    let updatedCar = Cars.filter((i) => i.designation === el);
     setModel(updatedCar[0].model);
     setAFC(updatedCar[0].average_fuel_consumption);
     setConfiguration(updatedCar[0].configuration);
     setDesignation(updatedCar[0].designation);
     setPrice(updatedCar[0].price);
     setHorsepower(updatedCar[0].horsepower);
-    setFuel(updatedCar[0].designation.includes('TFSI') ? 'petrol' : 'diesel');
+    setFuel(updatedCar[0].designation.includes("TFSI") ? "petrol" : "diesel");
   }
 
   // tax
@@ -121,92 +130,97 @@ function App() {
   taxExpensesArray[0] = taxesToPay(price) + Number(PLATE_EXPENSES);
   taxExpensesArray.fill(0, 1);
 
-// fuel
+  // fuel
 
-const fuelConsumptionArray = FUEL_CONS_CHANGE.map(i => {
-  if (fuel === 'petrol') {
-    return (150 * average_fuel_consumption * ALL_FUELS.petrol_95 * i).toFixed(0)
-  }
-  return (150 * average_fuel_consumption * ALL_FUELS.diesel * i).toFixed(0)
-});
+  const fuelConsumptionArray = FUEL_CONS_CHANGE.map((i) => {
+    if (fuel === "petrol") {
+      return (150 * average_fuel_consumption * ALL_FUELS.petrol_95 * i).toFixed(
+        0
+      );
+    }
+    return (150 * average_fuel_consumption * ALL_FUELS.diesel * i).toFixed(0);
+  });
 
-// depreciation
-let valueOfACar = price;
-const lossOfPriceArr = DEPRECIATION_RATES.map(i => {
-  let purchasePrice = valueOfACar;
-  valueOfACar = (valueOfACar * (1 - i/100)).toFixed(0)
-  let depreciationAmount = (purchasePrice - valueOfACar).toFixed(0);
-  return { valueOfACar, depreciationAmount }
-});
+  // depreciation
+  let valueOfACar = price;
+  const lossOfPriceArr = DEPRECIATION_RATES.map((i) => {
+    let purchasePrice = valueOfACar;
+    valueOfACar = (valueOfACar * (1 - i / 100)).toFixed(0);
+    let depreciationAmount = (purchasePrice - valueOfACar).toFixed(0);
+    return { valueOfACar, depreciationAmount };
+  });
 
-// insurance
-const insuranceExpenses = INSURANCE_EXPENSES.map((i, idx) => {
-  const baseFixedIns = FIXED_INSURANCE;
-  let insIndex;
+  // insurance
+  const insuranceExpenses = INSURANCE_EXPENSES.map((i, idx) => {
+    const baseFixedIns = FIXED_INSURANCE;
+    let insIndex;
 
-  if (horsepower <= 70) {
-    insIndex = 1
-  } else if (horsepower > 70 && horsepower <= 100 ){
-    insIndex = 1.1
-  } else if (horsepower > 100 && horsepower <= 140 ){  
-    insIndex = 1.2
-  } else if (horsepower > 140 && horsepower <= 190 ){
-    insIndex = 1.4
-  } else if (horsepower > 190 && horsepower <= 240 ){  
-    insIndex = 1.6
-  } else if (horsepower > 240 ){  
-    insIndex = 1.8
-  }
+    if (horsepower <= 70) {
+      insIndex = 1;
+    } else if (horsepower > 70 && horsepower <= 100) {
+      insIndex = 1.1;
+    } else if (horsepower > 100 && horsepower <= 140) {
+      insIndex = 1.2;
+    } else if (horsepower > 140 && horsepower <= 190) {
+      insIndex = 1.4;
+    } else if (horsepower > 190 && horsepower <= 240) {
+      insIndex = 1.6;
+    } else if (horsepower > 240) {
+      insIndex = 1.8;
+    }
 
-  if (hasFullInsurance) {
-    return (i * lossOfPriceArr[idx].valueOfACar / 100 + ( insIndex * baseFixedIns ) ).toFixed(0);
-  }
-  return ( insIndex * baseFixedIns ).toFixed(0);
-});
+    if (hasFullInsurance) {
+      return (
+        (i * lossOfPriceArr[idx].valueOfACar) / 100 +
+        insIndex * baseFixedIns
+      ).toFixed(0);
+    }
+    return (insIndex * baseFixedIns).toFixed(0);
+  });
 
-// calculate Each Year
+  // calculate Each Year
 
-const eachYearExpenses = () => {
-  let totalPerYear = new Array(5)
-  totalPerYear.fill(0,0)
-  return totalPerYear.map((i, idx) => {
-    return (
-      Number(REPAIR_EXPENSES[idx]) + 
-      Number(insuranceExpenses[idx]) + 
-      Number(MAINTENANCE_EXPENSES[idx]) + 
-      // Number(lossOfPriceArr[idx].depreciationAmount) + 
-      Number(fuelConsumptionArray[idx]) + 
-      Number(taxExpensesArray[idx])) + 
-      Number(otherExpensesArray[idx])
-  })
-}
+  const eachYearExpenses = () => {
+    let totalPerYear = new Array(5);
+    totalPerYear.fill(0, 0);
+    return totalPerYear.map((i, idx) => {
+      return (
+        Number(REPAIR_EXPENSES[idx]) +
+        Number(insuranceExpenses[idx]) +
+        Number(MAINTENANCE_EXPENSES[idx]) +
+        // Number(lossOfPriceArr[idx].depreciationAmount) +
+        Number(fuelConsumptionArray[idx]) +
+        Number(taxExpensesArray[idx]) +
+        Number(otherExpensesArray[idx])
+      );
+    });
+  };
 
-const eachYearExpensesArray = eachYearExpenses();
+  const eachYearExpensesArray = eachYearExpenses();
 
-// cost of own 
-const costOfOwn = eachYearExpensesArray.reduce((acc, cur) => {
-  return acc + Number(cur)
-}, 0);
+  // cost of own
+  const costOfOwn = eachYearExpensesArray.reduce((acc, cur) => {
+    return acc + Number(cur);
+  }, 0);
 
-const residualPrice = lossOfPriceArr[lossOfPriceArr.length - 1].valueOfACar
+  const residualPrice = lossOfPriceArr[lossOfPriceArr.length - 1].valueOfACar;
 
-// calculate 1 km 
+  // calculate 1 km
 
-const irretrievablyLost = costOfOwn + price - residualPrice;
+  const irretrievablyLost = costOfOwn + price - residualPrice;
 
-const perKm = (irretrievablyLost/75000).toFixed(2)
+  const perKm = (irretrievablyLost / 75000).toFixed(2);
 
-
-  document.title = `${designation} Cost to own - get full list of expenses`
+  document.title = `${designation} Cost to own - get full list of expenses`;
   return (
     <div className="App">
       <Nav />
       {/* <div>
         width: {width} ~ height: {height}
       </div> */}
-      <Breadcrumbs 
+      <Breadcrumbs
         manufacturer={manufacturer}
-        model={model} 
+        model={model}
         designation={designation}
       />
       <CarInfo
@@ -220,7 +234,7 @@ const perKm = (irretrievablyLost/75000).toFixed(2)
         residualPrice={residualPrice}
         perKm={perKm}
       />
-      <CarInfoBar 
+      <CarInfoBar
         horsepower={horsepower}
         designation={designation}
         configuration={configuration}
@@ -238,7 +252,7 @@ const perKm = (irretrievablyLost/75000).toFixed(2)
         parkingExpensesArray={parkingExpensesArray}
         otherExpensesArray={otherExpensesArray}
       />
-      <CarDataGrid 
+      <CarDataGrid
         hasFullInsurance={hasFullInsurance}
         handleCheckClick={handleCheckClick}
         setNumberOfCarWash={setNumberOfCarWash}

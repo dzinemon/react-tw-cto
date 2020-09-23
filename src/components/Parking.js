@@ -1,24 +1,19 @@
 import React from 'react';
-import sumTheArray from '../utils/sumTheArray'
+// import sumTheArray from '../utils/sumTheArray'
 
 function Parking(props) {
 
-  const { parking } = props;
+  const { parking, parkingPrice } = props;
 
   return (
     <div className="bg-gray-100  rounded p-2">
       <p className="font-semibold text-lg">
         АвтоСтоянка
       </p>
-      <p className="text-xs">
-        Затраты  
-        {props.parking === 'paid' &&  ` за 5 лет - ${sumTheArray(props.parkingExpensesArray)} `}
-        {props.parking === 'free' &&  ` ${sumTheArray(props.parkingExpensesArray)} `} 
-        грн
-      </p>
+      
       <div className="flex flex-row items-center justify-start px-1">
         
-          <label className="bg-blue-100 px-1 rounded mt-1" htmlFor="contactChoice1">У дома
+          <label className="bg-blue-100 px-1 rounded mt-1" htmlFor="contactChoice1">Не буду тратить
             <input type="radio" id="contactChoice1"
             className="border border-gray-500 px-2 py-1 ml-2 align-middle"
             name="parking" 
@@ -40,6 +35,37 @@ function Parking(props) {
             checked={parking === 'paid'? true : false }
             />
           </label>
+        
+      </div>
+      
+      <div className={(props.parking === 'paid') ? 'block' : 'hidden'}>
+        <label className="block text-gray-600 text-xs mb-1 mt-2" htmlFor="parking-price">
+          Введите затраты на паркинг в месяц на данный момент
+        </label>
+        <input id="parking-price"
+          name="parking-price"
+          placeholder={parkingPrice}
+          className="block appearance-none w-30 bg-gray-100 border border-blue-500 text-gray-700 py-2 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          type="text"
+          value={parkingPrice}
+          onChange={props.updateParkingPrice}
+        />
+      </div>
+
+      <div className="text-xs py-1">
+        <div className="flex flex-row items-start">
+          <div className="px-1">
+            <div className="w-4 h-4 rounded-full px-1 text-center bg-blue-300 text-white font-bold"> 
+              i
+            </div>
+          </div>
+          <div className="px-1 text-gray-600">
+          
+          {props.parking === 'paid' &&  `Затраты: ${parkingPrice} грн/месяц`}
+          {props.parking === 'free' &&  `Никаких затрат`} 
+          
+          </div>
+        </div>
         
       </div>
     </div>

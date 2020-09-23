@@ -25,11 +25,18 @@ import {
   MAINTENANCE_EXPENSES,
   REPAIR_EXPENSES,
   ALL_FUELS,
-  PARKING_EXPENSES,
   CARWASH_EXPENSES
 } from './hardcoded';
 
 function App() {
+
+  
+
+  function updateParkingPrice(e) {
+    if (!isNaN(+e.target.value) && (+e.target.value) < 50000 ) {
+      setParkingPrice(e.target.value);
+    }
+  }
 
   function calculateParking(e) {
     setParking(e.target.value)
@@ -62,11 +69,12 @@ function App() {
 
   const currentCar = Cars[0]
 
+  const [ parkingPrice, setParkingPrice ] = useState(0)
   const [ parking, setParking ] = useState('free')
   const [ carwash, setCarWash ] = useState(0)
   const [ wheels, setWheels ] = useState('tyresNo')
 
-  const parkingExpenses = (parking === 'free')? 0 : PARKING_EXPENSES * 12
+  const parkingExpenses = (parking === 'free')? 0 : parkingPrice * 12
   const parkingExpensesArray = new Array(5);
   parkingExpensesArray.fill(parkingExpenses);
 
@@ -233,12 +241,14 @@ const perKm = (irretrievablyLost/75000).toFixed(2)
         handleCheckClick={handleCheckClick}
         setNumberOfCarWash={setNumberOfCarWash}
         calculateParking={calculateParking}
+        updateParkingPrice={updateParkingPrice}
         parking={parking}
         carwash={carwash}
         parkingExpensesArray={parkingExpensesArray}
         calculateWheels={calculateWheels}
         otherExpensesArray={otherExpensesArray}
         wheels={wheels}
+        parkingPrice={parkingPrice}
       />
       <hr className="mt-20"></hr>
       <Footer />

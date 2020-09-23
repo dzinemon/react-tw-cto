@@ -10,13 +10,13 @@ function CarWash(props) {
       </p>
       <div className="bg-blue-100">
         <div>
-          Автомойки {carwash} раз в месяц
+          Выберите количество автомоек в месяц
         </div>
         
         <div>
         <input 
             type="range" 
-            defaultValue="1" 
+            defaultValue={carwash} 
             min="0" 
             step="1" 
             max="10" 
@@ -37,6 +37,22 @@ function CarWash(props) {
             <option value="9">9</option>
             <option value="10">10</option>
           </datalist>
+        </div>
+
+        <div className="text-xs py-1">
+          <div className="flex flex-row items-start">
+            <div className="px-1">
+              <div className="w-4 h-4 rounded-full px-1 text-center bg-blue-300 text-white font-bold"> 
+                i
+              </div>
+            </div>
+            <div className="px-1 text-gray-600">
+              {carwash === 0 && ` Не буду тратиться на это `}
+              {carwash >= 1 && `${carwash} автомоек в месяц `}
+              {/* {carwash > 6 || carwash === 5 &&  `${carwash} автомоек в месяц `} */}
+            </div>
+          </div>
+        
         </div>
       </div>
     </div>

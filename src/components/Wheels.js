@@ -6,11 +6,7 @@ function Wheels(props) {
       <p className="font-semibold text-lg">
         Колеса
       </p>
-      <p className="text-xs">  
-        {props.wheels === 'tyresNo' &&  ` никаких затрат `}
-        {props.wheels === 'tyres' &&  ` покупка комплекта сезонных шин и 2 раза в год затраты на шиномонтаж, балансировка, снятие/установка`}
-        {props.wheels === 'tyresPlus' &&  ` покупку комплекта комплект сезонных шин, дисков, датчиков давления, 2 раза в год затраты снятие/установка колес`} 
-      </p>
+      
       <div className="flex flex-row items-center justify-start px-1">
         <div>
           <label className="bg-blue-100 px-1 rounded mt-1" htmlFor="tyresNo">Езжу на заводской всегда
@@ -47,6 +43,22 @@ function Wheels(props) {
             />
           </label>
         </div>
+      </div>
+
+      <div className="text-xs py-1">
+        <div className="flex flex-row items-start">
+          <div className="px-1">
+            <div className="w-4 h-4 rounded-full px-1 text-center bg-blue-300 text-white font-bold"> 
+              i
+            </div>
+          </div>
+          <div className="px-1 text-gray-600">
+            {props.wheels === 'tyresNo' &&  ` никаких затрат `}
+            {props.wheels === 'tyres' &&  ` покупка комплекта сезонных шин в первый год и ежегодно (2 раза в год) затраты на шиномонтаж, балансировку снятие/установка`}
+            {props.wheels === 'tyresPlus' &&  ` покупка комплекта сезонных шин, дисков, датчиков давления в первый год и ежегодно (2 раза в год) затраты на снятие/установку колес`} 
+          </div>
+        </div>
+        
       </div>
     </div>
   )

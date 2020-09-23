@@ -45,7 +45,9 @@ function CarDataGrid(props) {
         <Parking 
           calculateParking={props.calculateParking} 
           parking={props.parking}
+          parkingPrice={props.parkingPrice}
           parkingExpensesArray={props.parkingExpensesArray}
+          updateParkingPrice={props.updateParkingPrice}
         />
 
         <CarWash 

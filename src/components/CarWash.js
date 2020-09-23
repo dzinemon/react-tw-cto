@@ -5,26 +5,24 @@ function CarWash(props) {
   const {carwash,setNumberOfCarWash} = props;
   return (
     <div className="bg-gray-100  rounded p-2">
-      <h4 className="font-semibold text-lg mb-1">
-        АвтоМойка
-      </h4>
+      <h4 className="font-semibold text-lg mb-1">АвтоМойка</h4>
       <div>
         <div className="leading-tight sm:leading-normal">
           Выберите количество автомоек в месяц
         </div>
-        
+
         <div className="mt-2">
-        <input 
+          <input
             className="cursor-pointer leading-tight sm:leading-normal"
-            type="range" 
-            defaultValue={carwash} 
-            min="0" 
-            step="1" 
-            max="10" 
-            list="tickmarks" 
+            type="range"
+            defaultValue={carwash}
+            min="0"
+            step="1"
+            max="10"
+            list="tickmarks"
             onChange={setNumberOfCarWash}
             // readOnly
-            />
+          />
           <datalist id="tickmarks">
             <option value="0">0</option>
             <option value="1">1</option>
@@ -43,7 +41,7 @@ function CarWash(props) {
         <div className="text-xs py-1">
           <div className="flex flex-row items-start">
             <div className="px-1">
-              <div className="w-4 h-4 rounded-full px-1 text-center bg-blue-300 text-white font-bold"> 
+              <div className="w-4 h-4 rounded-full px-1 text-center bg-blue-300 text-white font-bold">
                 i
               </div>
             </div>
@@ -53,11 +51,10 @@ function CarWash(props) {
               {/* {carwash > 6 || carwash === 5 &&  `${carwash} автомоек в месяц `} */}
             </div>
           </div>
-        
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default CarWash

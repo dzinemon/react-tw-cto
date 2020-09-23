@@ -46,9 +46,7 @@ function CarWash(props) {
               </div>
             </div>
             <div className="px-1 text-gray-600">
-              {carwash === 0 && ` Не буду тратиться на это `}
-              {carwash >= 1 && `${carwash} автомоек в месяц `}
-              {/* {carwash > 6 || carwash === 5 &&  `${carwash} автомоек в месяц `} */}
+              {`Количество моек в месяц: ${carwash}`}
             </div>
           </div>
         </div>

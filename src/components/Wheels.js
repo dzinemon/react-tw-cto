@@ -51,7 +51,7 @@ function Wheels(props) {
           className="cursor-pointer leading-tight sm:leading-normal hover:bg-gray-200"
           htmlFor="tyresPlus"
         >
-          Комплект шины с дисками и датчиками
+          Комплект шин с дисками и датчиками
         </label>
       </div>
 

@@ -24,7 +24,7 @@ function CarInfo(props) {
           {/* <span className="text-blue-500 hover:text-blue-700 hover:underline">Photos</span> */}
         </div>
         <div className="w-full sm:w-1/2 px-4">
-          <div className="text-xl text-gray-700 font-semibold">Общая Стоимость владения за <strong>5</strong> лет</div>
+          <div className="text-lg sm:text-xl text-gray-700 font-semibold">Общая Стоимость владения за <strong>5</strong> лет</div>
 
           <div className="my-6">
             <label className="block text-gray-600 text-xs mb-2" htmlFor="model">
@@ -56,7 +56,7 @@ function CarInfo(props) {
               </div>
               <div className="text-xs leading-none text-gray-100"><sup>**</sup> Цена авто в автосалоне</div>
             </div>
-            <div className="pb-2 bg-gray-100 p-2 border border-blue-200 rounded">
+            <div className="pb-2 bg-gray-100 p-2 border border-blue-200 rounded opacity-25">
               <p className="text-lg text-gray-800 leading-none font-light">
                 Стоимость после 5-и лет <sup>***</sup>
               </p>
@@ -65,7 +65,7 @@ function CarInfo(props) {
               </div>
               <div className="text-xs leading-none text-gray-800"><sup>***</sup> Выгода при продаже</div>
             </div>
-            <div className="pb-2 bg-gray-100 p-2 border border-blue-200 rounded">
+            <div className="pb-2 bg-gray-100 p-2 border border-blue-200 rounded opacity-25">
               <p className="text-lg text-blue-900 leading-none font-light">
                 Стоимость 1 км
               </p>

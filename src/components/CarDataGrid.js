@@ -51,9 +51,12 @@ function CarDataGrid(props) {
         <CarWash 
           carwash={props.carwash}
           setNumberOfCarWash={props.setNumberOfCarWash}/>
-        <Alarms />
-        <Wheels />
-
+        
+        <Wheels
+          wheels={props.wheels} 
+          calculateWheels={props.calculateWheels}
+        />
+        {/* <Alarms /> */}
       </div>
     </section>
     </div>

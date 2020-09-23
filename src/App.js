@@ -11,6 +11,8 @@ import useWindowDimensions from './hooks/useWindowDimensions';
 
 import taxesToPay from './utils/taxesToPay'
 
+import calculateWheelsExpenses from './utils/calculateWheelsExpenses'
+
 import Cars from './AUDI_A4.json';
 import './App.css';
 
@@ -33,6 +35,10 @@ function App() {
     setParking(e.target.value)
   }
 
+  function calculateWheels(e) {
+    setWheels(e.target.value)
+  }
+
   function setNumberOfCarWash(e) {
     setCarWash(e.target.value)
   }
@@ -51,10 +57,14 @@ function App() {
 
   const manufacturer = 'Audi'
 
+  const vehicleType = 'car'
+  const wheelSize = 'R18'
+
   const currentCar = Cars[0]
 
   const [ parking, setParking ] = useState('free')
   const [ carwash, setCarWash ] = useState(0)
+  const [ wheels, setWheels ] = useState('tyresNo')
 
   const parkingExpenses = (parking === 'free')? 0 : PARKING_EXPENSES * 12
   const parkingExpensesArray = new Array(5);
@@ -66,10 +76,14 @@ function App() {
   const carwashExpenses = (carwash < 1)? 0 : CARWASH_EXPENSES * 12 * carwash
   carwashExpensesArray.fill(carwashExpenses);
 
-  [0,0,0,0,0].map((e,idx) => {
-    return otherExpensesArray.push(carwashExpensesArray[idx] + parkingExpensesArray[idx]);
-  });
+  const wheelsExpenses = calculateWheelsExpenses(vehicleType, wheelSize, wheels);
 
+  console.log(wheelsExpenses);
+
+  [0,0,0,0,0].map((e,idx) => {
+    let cur = ((carwashExpensesArray[idx] + parkingExpensesArray[idx] + wheelsExpenses[idx]) * ((idx * 0.02) + 1)).toFixed(0)
+    return otherExpensesArray.push(cur);
+  });
 
   // const [ otherExpenses, setOtherExpenses ] = useState(0)
   const [ model, setModel ] = useState(currentCar.model)
@@ -222,7 +236,9 @@ const perKm = (irretrievablyLost/75000).toFixed(2)
         parking={parking}
         carwash={carwash}
         parkingExpensesArray={parkingExpensesArray}
+        calculateWheels={calculateWheels}
         otherExpensesArray={otherExpensesArray}
+        wheels={wheels}
       />
       <hr className="mt-20"></hr>
       <Footer />

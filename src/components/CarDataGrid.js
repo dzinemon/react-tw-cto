@@ -2,7 +2,7 @@ import React from 'react'
 import Wheels from './Wheels'
 import Parking from './Parking'
 import CarWash from './CarWash'
-import Alarms from './Alarms'
+// import Alarms from './Alarms'
 
 function CarDataGrid(props) {
   return (

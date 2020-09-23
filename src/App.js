@@ -25,7 +25,8 @@ import {
   MAINTENANCE_EXPENSES,
   REPAIR_EXPENSES,
   ALL_FUELS,
-  CARWASH_EXPENSES
+  CARWASH_EXPENSES,
+  PLATE_EXPENSES
 } from './hardcoded';
 
 function App() {
@@ -40,6 +41,9 @@ function App() {
 
   function calculateParking(e) {
     setParking(e.target.value)
+    if (parking === 'free') {
+      setParkingPrice(0);
+    }
   }
 
   function calculateWheels(e) {
@@ -86,8 +90,6 @@ function App() {
 
   const wheelsExpenses = calculateWheelsExpenses(vehicleType, wheelSize, wheels);
 
-  console.log(wheelsExpenses);
-
   [0,0,0,0,0].map((e,idx) => {
     let cur = ((carwashExpensesArray[idx] + parkingExpensesArray[idx] + wheelsExpenses[idx]) * ((idx * 0.02) + 1)).toFixed(0)
     return otherExpensesArray.push(cur);
@@ -116,7 +118,7 @@ function App() {
 
   // tax
   const taxExpensesArray = new Array(5);
-  taxExpensesArray[0] = taxesToPay(price);
+  taxExpensesArray[0] = taxesToPay(price) + Number(PLATE_EXPENSES);
   taxExpensesArray.fill(0, 1);
 
 // fuel

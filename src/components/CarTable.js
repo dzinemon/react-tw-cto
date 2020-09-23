@@ -25,7 +25,7 @@ function CarTable(props) {
     costOfOwn
   } = props;
   // tax
-  const totalTaxExpenses = sumTheArray(taxExpensesArray, 605);
+  const totalTaxExpenses = sumTheArray(taxExpensesArray);
 
   // fuel
   const totalFuelConsumption = sumTheArray(fuelConsumptionArray);

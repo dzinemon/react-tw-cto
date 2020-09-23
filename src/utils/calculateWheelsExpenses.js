@@ -5,8 +5,6 @@ import DiskPrices from '../hardcoded/disk-price.json';
 
 
 export default function calculateWheelsExpenses(carType, wheelType, option) {
-  console.log(`CarType ${carType}`);
-  console.log(`WheelType ${wheelType} Price UAH ${TyrePrices[wheelType]}`);
   const oneWheel = Tyres[carType];
   const oneTirePrice = TyrePrices[wheelType];
   const oneDiskPrice = DiskPrices[wheelType];

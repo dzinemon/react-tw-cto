@@ -7,35 +7,31 @@ function Parking(props) {
 
   return (
     <div className="bg-gray-100  rounded p-2">
-      <p className="font-semibold text-lg">
+      <h4 className="font-semibold text-lg mb-1">
         АвтоСтоянка
-      </p>
+      </h4>
       
       <div className="flex flex-row items-center justify-start px-1">
-        
-          <label className="bg-blue-100 px-1 rounded mt-1" htmlFor="contactChoice1">Не буду тратить
-            <input type="radio" id="contactChoice1"
-            className="border border-gray-500 px-2 py-1 ml-2 align-middle"
-            name="parking" 
-            value="free"
-            onChange={props.calculateParking}
-            checked={parking === 'free'? true : false }
-             />
-          </label>
-        
+        <input type="radio" id="contactChoice1"
+          className="border border-gray-500 px-2 py-1 mr-1 cursor-pointer"
+          name="parking" 
+          value="free"
+          onChange={props.calculateParking}
+          checked={parking === 'free'? true : false }
+            />
+        <label className="cursor-pointer leading-tight sm:leading-normal hover:bg-gray-200" htmlFor="contactChoice1">Не буду тратить
+        </label>
       </div>
       <div className="flex flex-row items-center justify-start px-1">
-        
-          <label className="bg-blue-100 px-1 rounded mt-1" htmlFor="contactChoice2">Платный паркинг
-            <input type="radio" id="contactChoice2"
-            className="border border-gray-500 px-2 py-1 ml-2 align-middle"
-            name="parking" 
-            value="paid"
-            onChange={props.calculateParking}
-            checked={parking === 'paid'? true : false }
-            />
-          </label>
-        
+        <input type="radio" id="contactChoice2"
+          className="border border-gray-500 px-2 py-1 mr-1 cursor-pointer"
+          name="parking" 
+          value="paid"
+          onChange={props.calculateParking}
+          checked={parking === 'paid'? true : false }
+          />
+        <label className="cursor-pointer leading-tight sm:leading-normal hover:bg-gray-200" htmlFor="contactChoice2">Платный паркинг
+        </label>
       </div>
       
       <div className={(props.parking === 'paid') ? 'block' : 'hidden'}>
@@ -45,9 +41,9 @@ function Parking(props) {
         <input id="parking-price"
           name="parking-price"
           placeholder={parkingPrice}
-          className="block appearance-none w-30 bg-gray-100 border border-blue-500 text-gray-700 py-2 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+          className="block appearance-none w-full sm:w-1/2 bg-gray-100 border border-blue-500 text-gray-700 py-2 px-2 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
           type="text"
-          value={parkingPrice}
+          // value={parkingPrice}
           onChange={props.updateParkingPrice}
         />
       </div>

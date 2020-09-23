@@ -38,7 +38,7 @@ function CarInfo(props) {
             </div>
           </div>
           <div className="my-6 grid grid-cols-2 gap-2">
-            <div className="pb-2 bg-gray-400 p-2 rounded">
+            <div className="pb-2 bg-gray-100 p-2 rounded">
               <p className="text-lg text-gray-600 leading-none font-light">
                 Стоимость владения <sup>*</sup>
               </p>
@@ -56,7 +56,7 @@ function CarInfo(props) {
               </div>
               <div className="text-xs leading-none text-gray-100"><sup>**</sup> Цена авто в автосалоне</div>
             </div>
-            <div className="pb-2 bg-gray-100 p-2 border border-blue-200 rounded opacity-25">
+            <div className="pb-2 bg-gray-100 p-2 border border-blue-200 rounded opacity-25 hidden">
               <p className="text-lg text-gray-800 leading-none font-light">
                 Стоимость после 5-и лет <sup>***</sup>
               </p>
@@ -65,7 +65,7 @@ function CarInfo(props) {
               </div>
               <div className="text-xs leading-none text-gray-800"><sup>***</sup> Выгода при продаже</div>
             </div>
-            <div className="pb-2 bg-gray-100 p-2 border border-blue-200 rounded opacity-25">
+            <div className="pb-2 bg-gray-100 p-2 border border-blue-200 rounded opacity-25 hidden">
               <p className="text-lg text-blue-900 leading-none font-light">
                 Стоимость 1 км
               </p>

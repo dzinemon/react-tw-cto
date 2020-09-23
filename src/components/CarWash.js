@@ -5,16 +5,17 @@ function CarWash(props) {
   const {carwash,setNumberOfCarWash} = props;
   return (
     <div className="bg-gray-100  rounded p-2">
-      <p className="font-semibold text-lg">
+      <h4 className="font-semibold text-lg mb-1">
         АвтоМойка
-      </p>
-      <div className="bg-blue-100">
-        <div>
+      </h4>
+      <div>
+        <div className="leading-tight sm:leading-normal">
           Выберите количество автомоек в месяц
         </div>
         
-        <div>
+        <div className="mt-2">
         <input 
+            className="cursor-pointer leading-tight sm:leading-normal"
             type="range" 
             defaultValue={carwash} 
             min="0" 

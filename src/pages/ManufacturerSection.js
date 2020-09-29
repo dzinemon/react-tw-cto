@@ -11,7 +11,7 @@ function ManufacturerSection(props) {
 
   const models = Array.from(modelsArray[0].models).map((i, idx) => {
     return (
-      <li key={idx}>
+      <li key={idx} className="mb-2 sm:mb-0">
         <Link to={`${manufacturer}/${i}`} className="text-blue-600 hover:text-blue-800 capitalize">
           {manufacturer} {i.toUpperCase()}
         </Link>
@@ -33,7 +33,7 @@ function ManufacturerSection(props) {
         </div>
 
         <div className="mt-10">
-          <ul className="grid grid-cols-3">
+          <ul className="grid grid-cols-2 sm:grid-cols-3 sm:text-base text-sm">
             {models}
           </ul>
         </div>

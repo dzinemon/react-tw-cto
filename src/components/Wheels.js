@@ -63,7 +63,7 @@ function Wheels(props) {
             </div>
           </div>
           <div className="px-1 text-gray-600">
-            {props.wheels === "tyresNo" && ` никаких затрат `}
+            {props.wheels === "tyresNo" && ` ніякіх витрат `}
             {props.wheels === "tyres" &&
               ` покупка комплекту сезонних шин в перший рік і щорічно (2 рази на рік) витрати на шиномонтаж, балансування, зняття / встановлення`}
             {props.wheels === "tyresPlus" &&

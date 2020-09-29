@@ -126,19 +126,19 @@ function CarTable(props) {
             <thead className="font-semibold bg-gray-100">
               <tr>
                 <td className="p-2"></td>
-                <td className="p-2 w-32">1-ый год</td>
-                <td className="p-2 w-32">2-й год</td>
-                <td className="p-2 w-32">3-й год</td>
-                <td className="p-2 w-32">4-й год</td>
-                <td className="p-2 w-32">5-й год</td>
-                <td className="p-2 font-bold w-32">Всего</td>
+                <td className="p-2 w-32">1-й рік</td>
+                <td className="p-2 w-32">2-й рік</td>
+                <td className="p-2 w-32">3-й рік</td>
+                <td className="p-2 w-32">4-й рік</td>
+                <td className="p-2 w-32">5-й рік</td>
+                <td className="p-2 font-bold w-32">Всього</td>
               </tr>
             </thead>
             <tbody>{tableRows}</tbody>
             <tfoot className="bg-gray-200">
               <tr>
                 <td className="font-bold p-2 font-bold">
-                  Общая Стоимость Владения
+                  Загальна Вартість Володіння
                 </td>
                 {fiveYearTDs}
                 <td className="p-2 font-bold">{formatNumber(costOfOwn)}</td>
@@ -146,8 +146,8 @@ function CarTable(props) {
             </tfoot>
           </table>
           <p className="text-xs text-gray-600 my-4">
-            * Данные основаны на 5-ти летнем сроке владения и пробеге 15,000 км
-            в год.
+            * Дані розрахунки зроблені на 5-ти річний термін володіння і пробігу 15,000 км
+             на рік.
           </p>
         </section>
       </div>

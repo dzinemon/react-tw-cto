@@ -6,6 +6,8 @@ import {
   Route
 } from "react-router-dom";
 
+import { createBrowserHistory } from "history";
+
 import Home from "./pages/Home";
 import Manufacturer from "./pages/Manufacturer";
 import Model from "./pages/Model"
@@ -17,11 +19,12 @@ import Footer from "./components/Footer";
 
 import "./App.css";
 
+const history = createBrowserHistory();
 
 function App() {
 
   return (
-    <Router>
+    <Router history={history}>
       <Nav />
       {/* <Breadcrumbs
           manufacturer={manufacturer}
@@ -39,7 +42,7 @@ function App() {
         <Route path="/">
           <Home />
         </Route>
-        <Route path="*">
+        <Route >
           <NoMatch />
         </Route>
       </Switch>

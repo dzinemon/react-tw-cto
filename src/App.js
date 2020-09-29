@@ -1,5 +1,7 @@
 import React from "react";
 
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 import {
   Router,
   Switch,
@@ -25,29 +27,36 @@ function App() {
 
   return (
     <Router history={history}>
-      <Nav />
-      {/* <Breadcrumbs
-          manufacturer={manufacturer}
-          model={model}
-          designation={designation}
-        /> */}
-
-      <Switch>
-        <Route exact path="/:param_manufacturer/:param_model">
-          <Model />
-        </Route>
-        <Route exact path="/:param_manufacturer">
-          <Manufacturer />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-        <Route >
-          <NoMatch />
-        </Route>
-      </Switch>
-      <hr className="mt-20"></hr>
-      <Footer />
+      <HelmetProvider>
+      <Helmet>
+        <title>{`Вартість нових авто та повний перелік витрат при володінні`}</title>
+        <meta name="description" content={`Вартість нових авто та повний перелік витрати на володіння будь-яким авто`} />
+        <meta name="theme-color" content="#008f68" />
+      </Helmet>
+        <Nav />
+        {/* <Breadcrumbs
+            manufacturer={manufacturer}
+            model={model}
+            designation={designation}
+          /> */}
+  
+        <Switch>
+          <Route exact path="/:param_manufacturer/:param_model">
+            <Model />
+          </Route>
+          <Route exact path="/:param_manufacturer">
+            <Manufacturer />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+          <Route >
+            <NoMatch />
+          </Route>
+        </Switch>
+        <hr className="mt-20"></hr>
+        <Footer />
+      </HelmetProvider>
     </Router>
   );
 }

@@ -3,10 +3,18 @@ import ReactDOM from 'react-dom';
 import './styles/main.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <HelmetProvider>
+     <Helmet>
+        <title>{`Вартість нових авто та повний перелік витрат при володінні`}</title>
+        <meta name="description" content={`Вартість нових авто та повний перелік витрати на володіння будь-яким авто`} />
+        <meta name="theme-color" content="#008f68" />
+      </Helmet>
+      <App />
+    </HelmetProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

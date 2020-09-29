@@ -20,7 +20,7 @@ function ManufacturerSection(props) {
   })
 
   return (
-    <div className="py-12 bg-white" id="manufacturers">
+    <div className="py-12 bg-white">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
         <p className="text-base leading-6 text-blue-600 font-semibold tracking-wide uppercase">АвтоВиробник {manufacturer}</p>

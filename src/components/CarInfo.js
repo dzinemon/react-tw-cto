@@ -6,9 +6,11 @@ import SelectDropdown from './SelectDropdown'
 
 function CarInfo(props) {
 
-  let currentPriceStr = formatNumber(props.price)
-  let currentCostOfOwn = formatNumber(props.costOfOwn)
-  let currentResidualPrice = formatNumber(props.residualPrice)
+  const {price, costOfOwn, residualPrice} = props
+
+  let currentPriceStr = !isNaN(price) ? formatNumber(price) : 0;
+  let currentCostOfOwn = !isNaN(costOfOwn) ? formatNumber(costOfOwn) : 0;
+  let currentResidualPrice = !isNaN(residualPrice) ? formatNumber(residualPrice) : 0;
   let perKm = formatNumber(props.perKm)
 
   let { image } = props;

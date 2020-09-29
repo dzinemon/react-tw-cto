@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 import { useState, useEffect } from 'react';
 
 import {
@@ -249,67 +251,72 @@ function Model() {
 
   const perKm = (irretrievablyLost / 75000).toFixed(2);
 
-  document.title = `${designation} Cost to own - get full list of expenses`;
-
   return (
-    <div>
-      <Breadcrumbs/>
-      <hr className="border border-blue-800"/>
-      <div className="App">
-            
-            {/* <div>
-              width: {width} ~ height: {height}
-            </div> */}
-            
-            <CarInfo
-              image={image}
-              configuration={configuration}
-              designation={designation}
-              price={price}
-              horsepower={horsepower}
-              cars={cars}
-              handleChange={handleChange}
-              costOfOwn={costOfOwn}
-              residualPrice={residualPrice}
-              perKm={perKm}
-              model={model}
-            />
-            <CarInfoBar
-              horsepower={horsepower}
-              designation={designation}
-              configuration={configuration}
-            />
-
-            <CarTable
-              isMobile={isMobile}
-              hasFullInsurance={hasFullInsurance}
-              taxExpensesArray={taxExpensesArray}
-              fuelConsumptionArray={fuelConsumptionArray}
-              lossOfPriceArr={lossOfPriceArr}
-              insuranceExpenses={insuranceExpenses}
-              eachYearExpensesArray={eachYearExpensesArray}
-              costOfOwn={costOfOwn}
-              parkingExpensesArray={parkingExpensesArray}
-              otherExpensesArray={otherExpensesArray}
-            />
-            <CarDataGrid
-              hasFullInsurance={hasFullInsurance}
-              handleCheckClick={handleCheckClick}
-              setNumberOfCarWash={setNumberOfCarWash}
-              calculateParking={calculateParking}
-              updateParkingPrice={updateParkingPrice}
-              parking={parking}
-              carwash={carwash}
-              parkingExpensesArray={parkingExpensesArray}
-              calculateWheels={calculateWheels}
-              otherExpensesArray={otherExpensesArray}
-              wheels={wheels}
-              parkingPrice={parkingPrice}
-            />
-            
-            
-          </div>
-    </div>
+    <>
+      <HelmetProvider>
+        <Helmet>
+          <title>{`Вартість володіння ${designation} у комлектації ${param_model}`}</title>
+          <meta name="description" content={`Вартість володіння автомобілем ${param_manufacturer} у комлектації ${param_model} з повним переліком витрат`} />
+          <meta name="theme-color" content="#008f68" />
+        </Helmet>
+        <Breadcrumbs/>
+        <hr className="border border-blue-800"/>
+        <div className="App">
+              
+              {/* <div>
+                width: {width} ~ height: {height}
+              </div> */}
+              
+              <CarInfo
+                image={image}
+                configuration={configuration}
+                designation={designation}
+                price={price}
+                horsepower={horsepower}
+                cars={cars}
+                handleChange={handleChange}
+                costOfOwn={costOfOwn}
+                residualPrice={residualPrice}
+                perKm={perKm}
+                model={model}
+              />
+              <CarInfoBar
+                horsepower={horsepower}
+                designation={designation}
+                configuration={configuration}
+              />
+  
+              <CarTable
+                isMobile={isMobile}
+                hasFullInsurance={hasFullInsurance}
+                taxExpensesArray={taxExpensesArray}
+                fuelConsumptionArray={fuelConsumptionArray}
+                lossOfPriceArr={lossOfPriceArr}
+                insuranceExpenses={insuranceExpenses}
+                eachYearExpensesArray={eachYearExpensesArray}
+                costOfOwn={costOfOwn}
+                parkingExpensesArray={parkingExpensesArray}
+                otherExpensesArray={otherExpensesArray}
+              />
+              <CarDataGrid
+                hasFullInsurance={hasFullInsurance}
+                handleCheckClick={handleCheckClick}
+                setNumberOfCarWash={setNumberOfCarWash}
+                calculateParking={calculateParking}
+                updateParkingPrice={updateParkingPrice}
+                parking={parking}
+                carwash={carwash}
+                parkingExpensesArray={parkingExpensesArray}
+                calculateWheels={calculateWheels}
+                otherExpensesArray={otherExpensesArray}
+                wheels={wheels}
+                parkingPrice={parkingPrice}
+              />
+              
+              
+            </div>
+      </HelmetProvider>
+    </>
   )
 }
 

@@ -34,15 +34,15 @@ const CARWASH_EXPENSES = 120
 const FIXED_INSURANCE = 1280
 
 const NAMING = {
-  totalInsurance: 'Страхование',
-  totalMaintenance: 'Обслуживание',
+  totalInsurance: 'Страхування',
+  totalMaintenance: 'Обслуговування',
   totalRepairs: 'Ремонт',
-  totalTaxExpenses: 'Налоги и Оформление',
+  totalTaxExpenses: 'Податки і Оформлення',
   // totalPlateExpenses: 'Оформление',
-  totalDepreciation: 'Потеря стоимости',
-  totalFuelConsumption: 'Топливо',
-  costOfOwn: 'Стоимость владения',
-  totalOtherExpenses: 'Прочие расходы'
+  totalDepreciation: 'Втрата вартості',
+  totalFuelConsumption: 'Паливо',
+  costOfOwn: 'Вартість володіння',
+  totalOtherExpenses: 'Інші витрати'
 }
 
 export {

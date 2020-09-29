@@ -19,7 +19,7 @@ function Wheels(props) {
           className="cursor-pointer leading-tight sm:leading-normal hover:bg-gray-200"
           htmlFor="tyresNo"
         >
-          Не учитывать
+          Не враховувати
         </label>
       </div>
       <div className="flex flex-row items-center justify-start">
@@ -35,7 +35,7 @@ function Wheels(props) {
           className="cursor-pointer leading-tight sm:leading-normal hover:bg-gray-200"
           htmlFor="tyres"
         >
-          Комплект сезонных Шин
+          Комплект сезонних Шин
         </label>
       </div>
       <div className="flex flex-row items-center justify-start">
@@ -51,7 +51,7 @@ function Wheels(props) {
           className="cursor-pointer leading-tight sm:leading-normal hover:bg-gray-200"
           htmlFor="tyresPlus"
         >
-          Комплект шин с дисками и датчиками
+          Комплект шин з дисками і датчиками
         </label>
       </div>
 
@@ -65,9 +65,9 @@ function Wheels(props) {
           <div className="px-1 text-gray-600">
             {props.wheels === "tyresNo" && ` никаких затрат `}
             {props.wheels === "tyres" &&
-              ` покупка комплекта сезонных шин в первый год и ежегодно (2 раза в год) затраты на шиномонтаж, балансировку снятие/установка`}
+              ` покупка комплекту сезонних шин в перший рік і щорічно (2 рази на рік) витрати на шиномонтаж, балансування, зняття / встановлення`}
             {props.wheels === "tyresPlus" &&
-              ` покупка комплекта сезонных шин, дисков, датчиков давления в первый год и ежегодно (2 раза в год) затраты на снятие/установку колес`}
+              ` покупка комплекту сезонних шин, дисків, датчиків тиску в перший рік і щорічно (2 рази на рік) витрати на зняття / встановлення коліс`}
           </div>
         </div>
       </div>

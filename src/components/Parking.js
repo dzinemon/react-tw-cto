@@ -19,7 +19,7 @@ function Parking(props) {
           onChange={props.calculateParking}
           checked={parking === 'free'? true : false }
             />
-        <label className="cursor-pointer leading-tight sm:leading-normal hover:bg-gray-200" htmlFor="contactChoice1">Не буду тратить
+        <label className="cursor-pointer leading-tight sm:leading-normal hover:bg-gray-200" htmlFor="contactChoice1">Не враховувати
         </label>
       </div>
       <div className="flex flex-row items-center justify-start px-1">
@@ -30,13 +30,13 @@ function Parking(props) {
           onChange={props.calculateParking}
           checked={parking === 'paid'? true : false }
           />
-        <label className="cursor-pointer leading-tight sm:leading-normal hover:bg-gray-200" htmlFor="contactChoice2">Платный паркинг
+        <label className="cursor-pointer leading-tight sm:leading-normal hover:bg-gray-200" htmlFor="contactChoice2">Платний паркінг
         </label>
       </div>
       
       <div className={(props.parking === 'paid') ? 'block' : 'hidden'}>
         <label className="block text-gray-600 text-xs mb-1 mt-2" htmlFor="parking-price">
-          Введите затраты на паркинг в месяц на данный момент
+          Введіть витрати на паркінг на місяць на даний момент
         </label>
         <input id="parking-price"
           name="parking-price"
@@ -57,8 +57,8 @@ function Parking(props) {
           </div>
           <div className="px-1 text-gray-600">
           
-          {props.parking === 'paid' &&  `Затраты: ${parkingPrice} грн/месяц`}
-          {props.parking === 'free' &&  `Никаких затрат`} 
+          {props.parking === 'paid' &&  `Витрати: ${parkingPrice} грн/місяц`}
+          {props.parking === 'free' &&  `Ніяких витрат`} 
           
           </div>
         </div>

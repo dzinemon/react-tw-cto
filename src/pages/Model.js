@@ -33,11 +33,17 @@ import {
 
 function Model() {
 
+  // const [image, setImage] = useState();
+
+  
+
   let { param_manufacturer, param_model } = useParams();
   // console.log(param_manufacturer)
   // console.log(param_model)
   const vehicleType = "car";
   const wheelSize = "R18";
+
+  const image = `../images/${param_manufacturer.toLowerCase()}/${param_model}_0.jpg`;
 
   const [cars, setCars] = useState([]);
 
@@ -256,6 +262,7 @@ function Model() {
             </div> */}
             
             <CarInfo
+              image={image}
               configuration={configuration}
               designation={designation}
               price={price}

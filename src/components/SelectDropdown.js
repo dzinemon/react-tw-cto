@@ -6,7 +6,7 @@ function SelectDropdown(props) {
 
   const options = CarsArray.map((i,idx) => {
     return (
-      <option key={idx.toString()} value={i.designation}>{i.designation} ({i.configuration})</option>
+      <option key={idx.toString()} value={i.designation}>{i.designation} {i.configuration}</option>
     )
   })
 

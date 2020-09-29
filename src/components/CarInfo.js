@@ -1,5 +1,5 @@
 import React from 'react';
-import CarImage from '../images/AUDI_A4_0.png'
+// import CarImage from '../images/AUDI_A4_0.png'
 import formatNumber from '../utils/formatNumber'
 
 import SelectDropdown from './SelectDropdown'
@@ -11,37 +11,39 @@ function CarInfo(props) {
   let currentResidualPrice = formatNumber(props.residualPrice)
   let perKm = formatNumber(props.perKm)
 
+  let { image } = props;
+
   return (
     <div className="xl:container mx-auto">
       <div className="px-4 my-4">
         <h1 className="font-semibold text-lg sm:text-3xl text-gray-700">
-          Стоимость владения{" "}
+          Вартість володіння{" "}
           <u>
             {props.designation}{" "}
             <span className="text-gray-500">
-              ({props.configuration}) {props.horsepower} л.с.
+              {props.configuration} {props.horsepower} к.с.
             </span>
           </u>
         </h1>
         <span className="text-gray-600 hover:underline hover:text-blue-500">
-          Подробнее об {props.designation}
+          Більше інформації {props.designation}
         </span>
         <span className="text-blue-500"></span>
       </div>
 
       <div className="flex flex-wrap">
-        <div className="w-full sm:w-1/2 sm:px-10 px-4">
-          <img src={CarImage} alt="" />
+        <div className="w-full sm:w-1/2 px-4">
+          <img src={image} alt={props.designation} />
           {/* <span className="text-blue-500 hover:text-blue-700 hover:underline">Photos</span> */}
         </div>
         <div className="w-full sm:w-1/2 px-4">
           <div className="text-lg sm:text-xl text-gray-700 font-semibold">
-            Общая Стоимость владения за <strong>5</strong> лет
+            Загальна Вартість володіння за <strong>5</strong> років
           </div>
 
           <div className="my-6">
             <label className="block text-gray-600 text-xs mb-2" htmlFor="model">
-              Выбрать модель
+              Вибір моделі
             </label>
             <div className="relative">
               <SelectDropdown
@@ -62,43 +64,43 @@ function CarInfo(props) {
           <div className="my-6 grid grid-cols-2 gap-2">
             <div className="pb-2 bg-gray-100 p-2 rounded">
               <p className="text-lg text-gray-600 leading-none font-light">
-                Стоимость владения <sup>*</sup>
+                Вартість володіння <sup>*</sup>
               </p>
               <div className="text-gray-800 text-xl sm:text-3xl font-bold">
                 {currentCostOfOwn}{" "}
                 <span className="text-gray-500 text-lg">грн</span>
               </div>
               <div className="text-xs leading-none text-gray-800">
-                <sup>*</sup> Все затраты на содержание
+                <sup>*</sup> Всі витрати на утримання
               </div>
             </div>
             <div className="pb-2 bg-blue-800 p-2 rounded">
               <p className="text-lg text-white leading-none font-light">
-                Цена нового автомобиля <sup>**</sup>
+                Ціна нового автомобіля <sup>**</sup>
               </p>
               <div className="text-blue-100 text-xl sm:text-3xl font-bold">
                 {currentPriceStr}{" "}
                 <span className="text-gray-100 text-lg">грн</span>
               </div>
               <div className="text-xs leading-none text-gray-100">
-                <sup>**</sup> Цена авто в автосалоне
+                <sup>**</sup> Ціна авто в автосалоні
               </div>
             </div>
             <div className="pb-2 bg-gray-100 p-2 border border-blue-200 rounded opacity-25 hidden">
               <p className="text-lg text-gray-800 leading-none font-light">
-                Стоимость после 5-и лет <sup>***</sup>
+                Вартість після 5-и років <sup>***</sup>
               </p>
               <div className="text-gray-800 text-xl sm:text-3xl font-bold">
                 {currentResidualPrice}{" "}
                 <span className="text-gray-500 text-lg">грн</span>
               </div>
               <div className="text-xs leading-none text-gray-800">
-                <sup>***</sup> Выгода при продаже
+                <sup>***</sup> Вигода при продажу
               </div>
             </div>
             <div className="pb-2 bg-gray-100 p-2 border border-blue-200 rounded opacity-25 hidden">
               <p className="text-lg text-blue-900 leading-none font-light">
-                Стоимость 1 км
+                Вартість 1 км
               </p>
               <div className="text-blue-800 text-xl sm:text-3xl font-bold">
                 {perKm} <span className="text-gray-500 text-lg">грн</span>

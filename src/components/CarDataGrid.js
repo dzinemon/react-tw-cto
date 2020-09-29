@@ -9,11 +9,11 @@ function CarDataGrid(props) {
     <div className="xl:container mx-auto">
       <section className="px-4 mt-6">
         <h3 className="font-semibold text-md sm:text-xl text-gray-700 mb-2">
-          Основные расходы
+          Основні витрати
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           <div className="bg-gray-100  rounded p-2">
-            <h4 className="font-semibold text-lg mb-1">Страховка</h4>
+            <h4 className="font-semibold text-lg mb-1">Стахування</h4>
 
             <div className="flex flex-row items-center justify-start px-1">
               <input
@@ -54,8 +54,8 @@ function CarDataGrid(props) {
                   </div>
                 </div>
                 <div className="px-1 text-gray-600">
-                  {props.hasFullInsurance && ` КАСКО и ОСАГО включены`}
-                  {!props.hasFullInsurance && ` только ОСАГО `}
+                  {props.hasFullInsurance && ` КАСКО и ОСАГО `}
+                  {!props.hasFullInsurance && ` тільки ОСАГО `}
                 </div>
               </div>
             </div>
@@ -64,7 +64,7 @@ function CarDataGrid(props) {
       </section>
       <section className="px-4 mt-6">
         <h3 className="font-semibold text-md sm:text-xl text-gray-700 mb-2">
-          Прочие расходы
+          Інші витрати
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           <Parking

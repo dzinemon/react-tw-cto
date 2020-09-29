@@ -5,10 +5,10 @@ function CarWash(props) {
   const {carwash,setNumberOfCarWash} = props;
   return (
     <div className="bg-gray-100  rounded p-2">
-      <h4 className="font-semibold text-lg mb-1">АвтоМойка</h4>
+      <h4 className="font-semibold text-lg mb-1">АвтоМийка</h4>
       <div>
         <div className="leading-tight sm:leading-normal">
-          Выберите количество автомоек в месяц
+          Виберіть кількість автомийок в місяць
         </div>
 
         <div className="mt-2">
@@ -46,7 +46,7 @@ function CarWash(props) {
               </div>
             </div>
             <div className="px-1 text-gray-600">
-              {`Количество моек в месяц: ${carwash}`}
+              {`Кількість мийок на місяць: ${carwash}`}
             </div>
           </div>
         </div>

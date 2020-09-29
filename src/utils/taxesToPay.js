@@ -13,6 +13,9 @@ const taxToPayPension = (tax) => {
 }
 
 export default function taxesToPay(priceWithTax) {
+  if (priceWithTax === undefined) {
+    return 0
+  }
   const taxFreePrice =  (priceWithTax - (priceWithTax * 20 / (100 + 20))).toFixed(0)
   return Number((taxToPayPension(taxFreePrice)).toFixed(0))
 }

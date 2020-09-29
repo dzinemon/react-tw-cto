@@ -34,8 +34,8 @@ import {
 function Model() {
 
   let { param_manufacturer, param_model } = useParams();
-  console.log(param_manufacturer)
-  console.log(param_model)
+  // console.log(param_manufacturer)
+  // console.log(param_model)
   const vehicleType = "car";
   const wheelSize = "R18";
 
@@ -110,22 +110,18 @@ function Model() {
   const [average_fuel_consumption, setAFC] = useState(
     // currentCar.average_fuel_consumption
   );
-  const [configuration, setConfiguration] = useState();
-  const [designation, setDesignation] = useState();
-  const [price, setPrice] = useState();
-  const [horsepower, setHorsepower] = useState();
-  const [fuel, setFuel] = useState(
-    // currentCar.designation.includes("TFSI") ? "petrol" : "diesel"
-  );
+  const [configuration, setConfiguration] = useState('');
+  const [designation, setDesignation] = useState('');
+  const [price, setPrice] = useState(0);
+  const [horsepower, setHorsepower] = useState(0);
+  const [fuel, setFuel] = useState('petrol');
   const [hasFullInsurance, setInsurance] = useState(true);
 
   const url = `../json/${param_manufacturer.toLowerCase()}/${param_model}.json`;
 
-console.log(url);
-
-  useEffect((url) => {
+  useEffect(() => {
     fetch(url).then(response => {
-      console.log(response);
+      // console.log(response);
       
       return response.text();
     }).then(data => {
@@ -147,7 +143,7 @@ console.log(url);
       // Do something for an error here
       console.log("Error Reading data " + err);
     });
-  }, [])
+  }, [url])
 
 
   function updateCar(el) {

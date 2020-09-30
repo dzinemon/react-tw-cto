@@ -22,7 +22,7 @@ function ManufacturerSection(props) {
       return (
         <li key={idx} className="mb-2 sm:mb-0">
           <Link to={`${manufacturer}/${i}`} className="text-blue-600 hover:text-blue-800 capitalize">
-            {manufacturer} {i.toUpperCase()}
+            {i.toUpperCase().replaceAll('_', ' ')}
           </Link>
         </li>
       )

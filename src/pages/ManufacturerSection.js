@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NotFound from "../pages/NotFound";
 
+import CarCardItem from '../components/CarCardItem'
+
 import ManufacturersAndModels from '../json/available-manufacturers-models.json'
 
 function ManufacturerSection(props) {
@@ -21,8 +23,9 @@ function ManufacturerSection(props) {
     models = Array.from(modelsArray[0].models).map((i, idx) => {    
       return (
         <li key={idx} className="mb-2 sm:mb-0">
-          <Link to={`${manufacturer}/${i}`} className="text-blue-600 hover:text-blue-800 capitalize">
-            {i.toUpperCase().replaceAll('_', ' ')}
+          <Link to={`${manufacturer}/${i}`} className="text-blue-600 hover:text-blue-800 capitalize font-bold">
+            
+            <CarCardItem image={`../images/${manufacturer.toLowerCase()}/${i}_0.jpg`} modelName={i.toUpperCase().replaceAll('_', ' ')} />
           </Link>
         </li>
       )

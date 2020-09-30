@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import Logo from '../logo.svg';
+
 function Nav() {
   return (
     <nav className="bg-gray-800">
@@ -21,7 +23,7 @@ function Nav() {
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex-shrink-0 text-white flex items-center flex-row font-bold">
-              <img className="block h-8 w-auto" src="./images/logo.svg" alt="Workflow logo"/>
+              <img className="block h-8 w-auto" src={Logo} alt="Вартість володіння"/>
               COST TO OWN
               {/* <img className="hidden lg:block h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-on-dark.svg" alt="Workflow logo"/> */}
             </div>

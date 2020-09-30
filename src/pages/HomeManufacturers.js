@@ -29,8 +29,8 @@ function HomeManufacturers() {
           </p>
         </div>
 
-        <div className="mt-10">
-          <ul className="grid grid-cols-3">
+        <div className="mt-10 text-left md:text-center">
+          <ul className="grid grid-cols-2">
             {manufacturers}
           </ul>
         </div>

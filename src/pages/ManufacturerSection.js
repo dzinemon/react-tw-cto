@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import NotFound from "../pages/NotFound";
 
 import ManufacturersAndModels from '../json/available-manufacturers-models.json'
 
@@ -9,15 +10,26 @@ function ManufacturerSection(props) {
 
   let modelsArray = ManufacturersAndModels.filter(i => i.manufacturer.toLowerCase() === props.manufacturer.toLowerCase())
 
-  const models = Array.from(modelsArray[0].models).map((i, idx) => {
+  
+  let models;
+
+  if (modelsArray.length === 0) {
     return (
-      <li key={idx} className="mb-2 sm:mb-0">
-        <Link to={`${manufacturer}/${i}`} className="text-blue-600 hover:text-blue-800 capitalize">
-          {manufacturer} {i.toUpperCase()}
-        </Link>
-      </li>
+      <NotFound></NotFound>
     )
-  })
+  } else {
+    models = Array.from(modelsArray[0].models).map((i, idx) => {    
+      return (
+        <li key={idx} className="mb-2 sm:mb-0">
+          <Link to={`${manufacturer}/${i}`} className="text-blue-600 hover:text-blue-800 capitalize">
+            {manufacturer} {i.toUpperCase()}
+          </Link>
+        </li>
+      )
+    })
+  
+  }
+  
 
   return (
     <div className="py-12 bg-white">

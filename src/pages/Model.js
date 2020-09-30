@@ -34,11 +34,7 @@ import {
 } from "../hardcoded";
 
 function Model() {
-
-  // const [image, setImage] = useState();
-
   
-
   let { param_manufacturer, param_model } = useParams();
   // console.log(param_manufacturer)
   // console.log(param_model)
@@ -116,7 +112,7 @@ function Model() {
   // const [ otherExpenses, setOtherExpenses ] = useState(0)
   const [model, setModel] = useState();
   const [average_fuel_consumption, setAFC] = useState(
-    // currentCar.average_fuel_consumption
+    0
   );
   const [configuration, setConfiguration] = useState('');
   const [designation, setDesignation] = useState('');

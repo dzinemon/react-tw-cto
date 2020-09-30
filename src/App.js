@@ -13,7 +13,7 @@ import { createBrowserHistory } from "history";
 import Home from "./pages/Home";
 import Manufacturer from "./pages/Manufacturer";
 import Model from "./pages/Model"
-import NoMatch from "./pages/NoMatch"
+import NotFound from "./pages/NotFound"
 
 
 import Nav from "./components/Nav";
@@ -50,8 +50,8 @@ function App() {
           <Route path="/">
             <Home />
           </Route>
-          <Route >
-            <NoMatch />
+          <Route path="*">
+            <NotFound />
           </Route>
         </Switch>
         <hr className="mt-20"></hr>

@@ -22,12 +22,12 @@ function ManufacturerSection(props) {
   } else {
     models = Array.from(modelsArray[0].models).map((i, idx) => {    
       return (
-        <li key={idx} className="mb-2 sm:mb-0">
+        <div key={idx} className="mb-2 sm:mb-0">
           <Link to={`${manufacturer}/${i}`} className="text-blue-600 hover:text-blue-800 capitalize font-bold">
             
             <CarCardItem image={`../images/${manufacturer.toLowerCase()}/${i}_0.jpg`} modelName={i.toUpperCase().replaceAll('_', ' ')} />
           </Link>
-        </li>
+        </div>
       )
     })
   
@@ -48,9 +48,9 @@ function ManufacturerSection(props) {
         </div>
 
         <div className="mt-10">
-          <ul className="grid grid-cols-2 sm:grid-cols-3 sm:text-base text-sm">
+          <div className="grid grid-cols-2 sm:grid-cols-3 sm:text-base text-sm gap-4 grid-2">
             {models}
-          </ul>
+          </div>
         </div>
       </div>
     </div>

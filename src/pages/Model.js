@@ -149,6 +149,10 @@ function Model() {
     });
   }, [url])
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+}, [ ] );
+
 
   function updateCar(el) {
     let updatedCar = cars.filter((i) => i.designation === el);

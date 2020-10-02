@@ -24,7 +24,7 @@ function HomeManufacturers() {
           <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
             Виберіть автовиробника
           </h3>
-          <p className="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
+          <p className="max-w-2xl text-sm md:text-base  leading-7 text-gray-500 lg:mx-auto">
             Ми постійно оновлюемо дані
           </p>
         </div>

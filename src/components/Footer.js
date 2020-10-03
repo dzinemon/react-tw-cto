@@ -7,11 +7,11 @@ function Footer() {
         <div className="xl:container mx-auto">
           <section className="p-4">
             <p>
-              Get best values to your email
+              Отримай повідомлення на свій e-mail
             </p>
             <hr className="my-4 border-gray-200"/>
             <p>
-              <span>© CTO, Inc</span>
+              <span>Вартість володіння авто</span>
             </p>
           </section>
         </div>

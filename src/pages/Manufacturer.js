@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import {useParams} from 'react-router-dom';
 import ManufacturerSection from './ManufacturerSection'
@@ -8,6 +8,10 @@ import Breadcrumbs from '../components/Breadcrumbs'
 function Manufacturer() {
 
   let { param_manufacturer } = useParams();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [ ] );
 
   return (
     <div>

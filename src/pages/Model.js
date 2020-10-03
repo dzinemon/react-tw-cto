@@ -151,7 +151,7 @@ function Model() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-}, [ ] );
+  }, [ ] );
 
 
   function updateCar(el) {

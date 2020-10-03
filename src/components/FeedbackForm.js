@@ -42,7 +42,10 @@ function FeedbackForm() {
         message, 
       })
     })
-      .then(() => alert("Success!"))
+      .then(() => {
+        console.log('form sent')
+        setSubmitted(true);
+      })
       .catch(error => alert(error));
 
     e.preventDefault();
@@ -84,7 +87,9 @@ function FeedbackForm() {
         </button>)}
         
         { isActive && (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}
+            className={ `${isSubmitted ? `hidden` : ''}`}
+          >
             <p className="mb-2">
               <label htmlFor="name" className="text-gray-600 text-sm font-semibold">
                 Твоє ім'я: 
@@ -108,7 +113,7 @@ function FeedbackForm() {
                 placeholder="Що подобається? Що покращити? Що змінити?"
                 value={message} 
                 onChange={handleChange}
-              
+                required
               />
             </p>
             <p>
@@ -117,6 +122,10 @@ function FeedbackForm() {
               >Send</button>
             </p>
           </form>
+        )}
+
+        {isSubmitted && isActive && (
+          <p className="text-blue-700 font-bold text-center text-lg">Дякуємо за відгук</p>
         )}
 
         { !isActive && (<div className="flex flex-row justify-between items-center">

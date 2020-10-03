@@ -14,6 +14,13 @@ ReactDOM.render(
         <meta name="theme-color" content="#008f68" />
       </Helmet>
       <App />
+      <div>
+        <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+          <input type="text" name="name" />
+          <input type="email" name="email" />
+          <textarea name="message"></textarea>
+        </form>
+      </div>
     </HelmetProvider>
   </React.StrictMode>,
   document.getElementById('root')

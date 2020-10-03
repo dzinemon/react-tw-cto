@@ -92,6 +92,7 @@ function FeedbackForm() {
             onSubmit={handleSubmit}
             className={ `${isSubmitted ? `hidden` : ''}`}
           >
+            <input type="hidden" name="form-name" value="contact" />
             <p className="mb-2">
               <label htmlFor="name" className="text-gray-600 text-sm font-semibold">
                 Твоє ім'я: 

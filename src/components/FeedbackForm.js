@@ -39,7 +39,7 @@ function FeedbackForm() {
         "form-name": "contact", 
         name,
         email,
-        message, 
+        message
       })
     })
       .then(() => {
@@ -65,30 +65,31 @@ function FeedbackForm() {
 
 
   return (
-    <div className="position fixed right-0 bottom-0">
+    <div className="position fixed right-0 bottom-0 sm:left-auto left-0">
       <div
-        style={{
-          transitionProperty: 'width',
-          transitionDuration: '500ms',
-          transitionTimingFunction: "linear"
-        }}
+        // style={{
+        //   transitionProperty: 'width',
+        //   transitionDuration: '500ms',
+        //   transitionTimingFunction: "linear"
+        // }}
         className={`
           transtion-all
-          overflow-hidden trans m-4 bg-white shadow-lg 
-          ${ isActive ? 'rounded p-4 border-blue-500 border w-64' : `rounded-full`}
-          ${ isInfo ? 'w-auto' : ``}
+          overflow-hidden m-4 
+          
+          ${ isActive ? 'rounded-lg p-4 border-blue-500 border w-auto bg-white shadow-lg' : `rounded-full`}
+          ${ isInfo ? ' ' : ``}
           `
         }
       >
         { isActive && (<button type="submit"
-          className="position absolute right-0 top-0 text-lg text-red-600 h-8 w-8 leading-none rounded-full border-red-600 border bg-white hover:bg-red-600 hover:text-white"
+          className="position absolute right-0 top-0 text-lg text-red-600 h-10 w-10 sm:h-8 sm:w-8 leading-none rounded-full border-red-600 border bg-white hover:bg-red-600 hover:text-white"
           onClick={toggleForm}
           >&times;
         </button>)}
         
         { isActive && (
           <form 
-            name="contact" netlify
+            name="contact" netlify="true"
             onSubmit={handleSubmit}
             className={ `${isSubmitted ? `hidden` : ''}`}
           >
@@ -121,25 +122,36 @@ function FeedbackForm() {
             </p>
             <p>
               <button type="submit"
-                className="w-full flex items-center justify-center px-6 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition duration-150 ease-in-out md:py-2 md:text-lg md:px-4"
-              >Send</button>
+                className="w-1/2 flex items-center justify-center px-6 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-blue-700 focus:shadow-outline-blue transition duration-150 ease-in-out md:py-2 md:text-lg md:px-4"
+              >Відправити</button>
             </p>
           </form>
         )}
 
         {isSubmitted && isActive && (
-          <p className="text-blue-700 font-bold text-center text-lg">Дякуємо за відгук</p>
+          <div>
+            <p className="text-gray-700 font-bold text-center text-lg">Дякуємо за відгук</p>
+            <p className="text-center">
+              <button 
+                className="text-blue-500 hover:underline hover:text-blue-700 text-sm"
+                onClick={() => {
+                  setInfo(false);
+                  setSubmitted(false);
+                }}
+              >написати ще один</button>
+            </p>
+          </div>
         )}
 
-        { !isActive && (<div className="flex flex-row justify-between items-center">
+        { !isActive && (<div className="flex flex-row justify-end items-center">
           { isInfo &&
-            <div className="leading-none text-blue-500 text-sm font-light pl-3 transform ">
+            <div className="leading rounded-full bg-white h-8 py-1 text-blue-500 text-sm border border-blue-600 font-light px-3 transform duration-1000">
               Будемо вдячні за твій відгук
             </div>
           }
             <div>
               <button type="submit"
-                className=" text-lg text-white h-12 w-12 p-2 leading-none rounded-full border-blue-600 border bg-blue-600 hover:bg-white hover:text-blue-600"
+                className="text-lg text-white h-12 w-12 p-2 leading-none rounded-full border-blue-600 border bg-blue-600 hover:bg-white hover:text-blue-600"
                 onClick={toggleForm}
                 onMouseOver={handleMouseOver}
                 onMouseLeave={handleMouseLeave}

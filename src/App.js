@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound"
 
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import FeedbackForm from "./components/FeedbackForm";
 
 import "./App.css";
 
@@ -55,6 +56,7 @@ function App() {
           </Route>
         </Switch>
         <hr className="mt-20"></hr>
+        <FeedbackForm />
         <Footer />
       </HelmetProvider>
     </Router>

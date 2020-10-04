@@ -8,12 +8,12 @@ function CarDataGrid(props) {
   return (
     <div className="xl:container mx-auto">
       <section className="px-4 mt-6">
-        <h3 className="font-semibold text-md sm:text-xl text-gray-700 mb-2">
+        <h3 className="font-semibold text-lg sm:text-2xl text-gray-800 mb-2">
           Основні витрати
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           <div className="bg-gray-100  rounded p-2">
-            <h4 className="font-semibold text-lg mb-1">Стахування</h4>
+            <h4 className="font-semibold text-lg text-gray-700 mb-1">Стахування</h4>
 
             <div className="flex flex-row items-center justify-start px-1">
               <input
@@ -63,7 +63,7 @@ function CarDataGrid(props) {
         </div>
       </section>
       <section className="px-4 mt-6">
-        <h3 className="font-semibold text-md sm:text-xl text-gray-700 mb-2">
+        <h3 className="font-semibold text-lg sm:text-2xl text-gray-800 mb-2">
           Інші витрати
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">

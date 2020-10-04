@@ -120,7 +120,7 @@ function CarTable(props) {
         costOfOwn={costOfOwn}
         sortedCosts={sortedCosts}
       />
-      <div className="xl:container mx-auto overflow-scroll">
+      <div className="xl:container mx-auto overflow-y-scroll">
         <section className="px-4">
           <table className="table-auto text-sm sm:text-base w-full bg-gray-100 border-gray-200 border-2 rounded overflow-hidden border-collapse">
             <thead className="font-semibold bg-gray-100">

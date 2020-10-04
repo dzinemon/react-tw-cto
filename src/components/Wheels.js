@@ -3,7 +3,7 @@ import React from 'react';
 function Wheels(props) {
   return (
     <div className="bg-gray-100  rounded p-2">
-      <h4 className="font-semibold text-lg mb-1">Колеса</h4>
+      <h4 className="font-semibold text-lg text-gray-700 mb-1">Колеса</h4>
 
       <div className="flex flex-row items-center justify-start">
         <input

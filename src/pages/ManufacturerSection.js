@@ -38,13 +38,13 @@ function ManufacturerSection(props) {
     <div className="py-12 bg-white">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="lg:text-center">
-        <p className="text-base leading-6 text-blue-600 font-semibold tracking-wide uppercase">АвтоВиробник {manufacturer}</p>
+        {/* <p className="text-base leading-6 text-blue-600 font-semibold tracking-wide uppercase">АвтоВиробник {manufacturer}</p> */}
           <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
             Виберіть модель {manufacturer}
           </h3>
-          <p className="max-w-2xl text-sm md:text-base  leading-7 text-gray-500 lg:mx-auto">
-            Ми постійно оновлюемо дані моделей {manufacturer}
-          </p>
+          {/* <p className="max-w-2xl text-sm md:text-base  leading-7 text-gray-500 lg:mx-auto">
+            Ми постійно оновлюемо дані моделей
+          </p> */}
         </div>
 
         <div className="mt-10">

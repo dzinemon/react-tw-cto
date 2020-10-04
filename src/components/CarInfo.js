@@ -19,17 +19,15 @@ function CarInfo(props) {
     <div className="xl:container mx-auto">
       <div className="px-4 my-4">
         <h1 className="font-semibold text-lg sm:text-3xl text-gray-700">
-          Вартість володіння{" "}
-          <u>
-            {props.designation}{" "}
-            <span className="text-gray-500">
-              {props.configuration} {props.horsepower} к.с.
-            </span>
-          </u>
+          Вартість володіння 
+          <span> {props.designation} </span>
+          <span className=""> {props.configuration}</span>
+          <span className=""> {props.horsepower} к.с.</span>
+          <span> за <strong>5</strong> років</span>
         </h1>
-        <span className="text-gray-600 hover:underline hover:text-blue-500">
+        {/* <span className="text-gray-600 hover:underline hover:text-blue-500">
           Більше інформації {props.designation}
-        </span>
+        </span> */}
         <span className="text-blue-500"></span>
       </div>
 
@@ -39,9 +37,9 @@ function CarInfo(props) {
           {/* <span className="text-blue-500 hover:text-blue-700 hover:underline">Photos</span> */}
         </div>
         <div className="w-full sm:w-1/2 px-4">
-          <div className="text-lg sm:text-xl text-gray-700 font-semibold">
+          {/* <div className="text-lg sm:text-xl text-gray-700 font-semibold">
             Загальна Вартість володіння за <strong>5</strong> років
-          </div>
+          </div> */}
 
           <div className="my-6">
             <label className="block text-gray-600 text-xs mb-2" htmlFor="model">

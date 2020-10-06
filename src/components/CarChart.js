@@ -14,7 +14,7 @@ function CarChart(props) {
       return (
         <ChartItem 
           key={i.name} 
-          colorTone={9 - idx} 
+          colorTone={8 - idx} 
           parameterName={i.name} 
           costOfOwn={costOfOwn} 
           parameter={i.value} 
@@ -27,7 +27,7 @@ function CarChart(props) {
     return (
       <ChartItem 
         key={i.name} 
-        colorTone={9 - idx} 
+        colorTone={8 - idx} 
         parameterName={i.name} 
         costOfOwn={costOfOwn} 
         parameter={i.value} 

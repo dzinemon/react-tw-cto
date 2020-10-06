@@ -32,11 +32,11 @@ function ChartItem(props) {
           <div className={`line bg-blue-${colorTone}00`}></div>
           <div className={`circle bg-blue-${colorTone}00`}></div>
         </div>
-        <div className="caption h-10 flex flex-col items-center text-center text-xs sm:text-base w-20 sm:w-40">
-          <div className="text-xs sm:text-sm leading-none relative sm:w-40">
+        <div className="caption h-10 flex flex-col items-center text-center text-xs sm:text-base w-20 sm:w-56">
+          <div className="text-xs sm:text-sm leading-none relative sm:w-56">
             {NAMING[parameterName]}
           </div>
-          <span className="text-xs font-bold text-gray-800 relative sm:w-40">{formatNumber(parameter)} <span className="text-gray-500">грн</span></span>
+          <span className="text-xs font-semibold text-gray-800 relative sm:w-40">{formatNumber(parameter)} <span className="text-gray-500">грн</span></span>
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@ function Manufacturer() {
           <meta name="theme-color" content="#008f68" />
         </Helmet>
         <Breadcrumbs />
-        <hr className="border border-blue-600"/>
+        <hr className="border-top border-blue-600"/>
         <ManufacturerSection manufacturer={param_manufacturer}/>
       </HelmetProvider>
     </div>

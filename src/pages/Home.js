@@ -12,7 +12,7 @@ function Home() {
         <meta name="theme-color" content="#008f68" />
       </Helmet>
       <div>
-        <hr className="border border-blue-400"/>
+        <hr className="border-top border-blue-600"/>
         <HomeHero/>
         {/* <HomeManufacturers/> */}
       </div>

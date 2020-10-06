@@ -260,7 +260,7 @@ function Model() {
           <meta name="theme-color" content="#008f68" />
         </Helmet>
         <Breadcrumbs/>
-        <hr className="border border-blue-800"/>
+        <hr className="border-top border-blue-800"/>
         <div className="App">
               
               {/* <div>

@@ -37,7 +37,7 @@ const NAMING = {
   totalInsurance: 'Страхування',
   totalMaintenance: 'Обслуговування',
   totalRepairs: 'Ремонт',
-  totalTaxExpenses: 'Податки і Оформлення',
+  totalTaxExpenses: 'Податки і оформлення',
   // totalPlateExpenses: 'Оформление',
   totalDepreciation: 'Втрата вартості',
   totalFuelConsumption: 'Паливо',

@@ -43,7 +43,7 @@ function CarInfo(props) {
 
           <div className="my-6">
             <label className="block text-gray-600 text-xs mb-2" htmlFor="model">
-              Вибір моделі
+              Комплектація:
             </label>
             <div className="relative">
               <SelectDropdown

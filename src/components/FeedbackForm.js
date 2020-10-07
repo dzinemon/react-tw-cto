@@ -152,6 +152,7 @@ function FeedbackForm() {
             <div>
               <button type="submit"
                 className="text-lg text-white h-12 w-12 p-2 leading-none rounded-full border-blue-600 border bg-blue-600 hover:bg-white hover:text-blue-600"
+                aria-label="Відправити відгук"
                 onClick={toggleForm}
                 onMouseOver={handleMouseOver}
                 onMouseLeave={handleMouseLeave}

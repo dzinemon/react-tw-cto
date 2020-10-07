@@ -5,7 +5,7 @@ function CarWash(props) {
   const {carwash,setNumberOfCarWash} = props;
   return (
     <div className="bg-gray-100  rounded p-2">
-      <h4 className="font-semibold text-lg text-gray-700 mb-1">АвтоМийка</h4>
+      <h3 className="font-semibold text-lg text-gray-700 mb-1">АвтоМийка</h3>
       <div>
         <label htmlFor="carwash" className="leading-tight sm:leading-normal">
           Виберіть кількість автомийок в місяць
@@ -46,7 +46,7 @@ function CarWash(props) {
                 i
               </div>
             </div>
-            <div className="px-1 text-gray-600">
+            <div className="px-1 text-gray-700">
               {`Кількість мийок на місяць: ${carwash}`}
             </div>
           </div>

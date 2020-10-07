@@ -7,9 +7,9 @@ function Parking(props) {
 
   return (
     <div className="bg-gray-100  rounded p-2">
-      <h4 className="font-semibold text-lg text-gray-700 mb-1">
+      <h3 className="font-semibold text-lg text-gray-700 mb-1">
         АвтоСтоянка
-      </h4>
+      </h3>
       
       <div className="flex flex-row items-center justify-start px-1">
         <input type="radio" id="contactChoice1"
@@ -35,7 +35,7 @@ function Parking(props) {
       </div>
       
       <div className={(props.parking === 'paid') ? 'block' : 'hidden'}>
-        <label className="block text-gray-600 text-xs mb-1 mt-2" htmlFor="parking-price">
+        <label className="block text-gray-700 text-xs mb-1 mt-2" htmlFor="parking-price">
           Введіть витрати на паркінг на місяць на даний момент
         </label>
         <input id="parking-price"
@@ -55,7 +55,7 @@ function Parking(props) {
               i
             </div>
           </div>
-          <div className="px-1 text-gray-600">
+          <div className="px-1 text-gray-700">
           
           {props.parking === 'paid' &&  `Витрати: ${parkingPrice} грн/місяц`}
           {props.parking === 'free' &&  `Ніяких витрат`} 

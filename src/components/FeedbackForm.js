@@ -95,19 +95,19 @@ function FeedbackForm() {
           >
             <input type="hidden" name="form-name" value="contact" />
             <p className="mb-2">
-              <label htmlFor="name" className="text-gray-600 text-sm font-semibold">
+              <label htmlFor="name" className="text-gray-700 text-sm font-semibold">
                 Твоє ім'я: 
               </label>
               <input className="w-full bg-gray-200 rounded focus:bg-gray-100 py-1 px-2" type="text" id="name" name="name" value={name} onChange={handleChange} />
             </p>
             <p className="mb-2">
-              <label htmlFor="email" className="text-gray-600 text-sm font-semibold">
+              <label htmlFor="email" className="text-gray-700 text-sm font-semibold">
                 Твій Email: 
               </label>
               <input className="w-full bg-gray-200 rounded focus:bg-gray-100 py-1 px-2" id="email" type="email" name="email" value={email} onChange={handleChange} />
             </p>
             <p className="mb-2">
-              <label htmlFor="message" className="text-gray-600 text-sm font-semibold">
+              <label htmlFor="message" className="text-gray-700 text-sm font-semibold">
                 Твій відгук: 
               </label>
               <textarea 

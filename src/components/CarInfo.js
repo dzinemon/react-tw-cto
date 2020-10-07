@@ -25,9 +25,6 @@ function CarInfo(props) {
           <span className=""> {props.horsepower} к.с.</span>
           <span> за <strong>5</strong> років</span>
         </h1>
-        {/* <span className="text-gray-600 hover:underline hover:text-blue-500">
-          Більше інформації {props.designation}
-        </span> */}
         <span className="text-blue-500"></span>
       </div>
 
@@ -42,7 +39,7 @@ function CarInfo(props) {
           </div> */}
 
           <div className="my-6">
-            <label className="block text-gray-600 text-xs mb-2" htmlFor="model">
+            <label className="block text-gray-700 text-xs mb-2" htmlFor="model">
               Комплектація:
             </label>
             <div className="relative">
@@ -63,12 +60,12 @@ function CarInfo(props) {
           </div>
           <div className="my-6 grid grid-cols-2 gap-2">
             <div className="pb-2 bg-gray-100 p-2 rounded">
-              <p className="text-lg text-gray-600 leading-none font-light">
+              <p className="text-lg text-gray-700 leading-none font-light">
                 Вартість володіння <sup>*</sup>
               </p>
               <div className="text-gray-800 text-xl sm:text-3xl font-bold">
                 {currentCostOfOwn}{" "}
-                <span className="text-gray-500 text-lg">грн</span>
+                <span className="text-gray-70 text-lg">грн</span>
               </div>
               <div className="text-xs leading-none text-gray-800">
                 <sup>*</sup> Всі витрати на утримання
@@ -92,7 +89,7 @@ function CarInfo(props) {
               </p>
               <div className="text-gray-800 text-xl sm:text-3xl font-bold">
                 {currentResidualPrice}{" "}
-                <span className="text-gray-500 text-lg">грн</span>
+                <span className="text-gray-700 text-lg">грн</span>
               </div>
               <div className="text-xs leading-none text-gray-800">
                 <sup>***</sup> Вигода при продажу
@@ -103,7 +100,7 @@ function CarInfo(props) {
                 Вартість 1 км
               </p>
               <div className="text-blue-800 text-xl sm:text-3xl font-bold">
-                {perKm} <span className="text-gray-500 text-lg">грн</span>
+                {perKm} <span className="text-gray-700 text-lg">грн</span>
               </div>
             </div>
           </div>

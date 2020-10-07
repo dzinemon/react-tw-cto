@@ -3,7 +3,7 @@ import React from 'react';
 function Wheels(props) {
   return (
     <div className="bg-gray-100  rounded p-2">
-      <h4 className="font-semibold text-lg text-gray-700 mb-1">Колеса</h4>
+      <h3 className="font-semibold text-lg text-gray-700 mb-1">Колеса</h3>
 
       <div className="flex flex-row items-center justify-start">
         <input
@@ -62,7 +62,7 @@ function Wheels(props) {
               i
             </div>
           </div>
-          <div className="px-1 text-gray-600">
+          <div className="px-1 text-gray-700">
             {props.wheels === "tyresNo" && ` ніякіх витрат `}
             {props.wheels === "tyres" &&
               ` покупка комплекту сезонних шин в перший рік і щорічно (2 рази на рік) витрати на шиномонтаж, балансування, зняття / встановлення`}

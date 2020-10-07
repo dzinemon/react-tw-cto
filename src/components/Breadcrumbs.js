@@ -9,18 +9,18 @@ function Breadcrumbs(props) {
   return (
     <div className="xl:container p-4 mx-auto">
       <div className="sm:text-xs text-sm">
-        <Link to="/" className="text-gray-600 hover:text-gray-500">Головна</Link>
+        <Link to="/" className="text-gray-700 hover:text-gray-500">Головна</Link>
         <span className="text-gray-400"> / </span>
         {!param_model && param_manufacturer && (
           <>
-            <span className="text-gray-600 capitalize">{param_manufacturer}</span>           
+            <span className="text-gray-700 capitalize">{param_manufacturer}</span>           
           </>
         )}
         {param_model && param_manufacturer && (
           <>
-          <Link to={`/${param_manufacturer}`} className="text-gray-600 hover:text-gray-500 capitalize">{param_manufacturer}</Link> 
+          <Link to={`/${param_manufacturer}`} className="text-gray-700 hover:text-gray-500 capitalize">{param_manufacturer}</Link> 
           <span className="text-gray-400"> / </span>
-          <span className="text-gray-600 capitalize">{param_model.replaceAll('_', ' ')}</span>
+          <span className="text-gray-700 capitalize">{param_model.replaceAll('_', ' ')}</span>
           </>
           )}
       </div>

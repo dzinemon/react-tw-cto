@@ -39,7 +39,7 @@ function ManufacturerSection(props) {
         <div className="lg:text-center">
         {/* <p className="text-base leading-6 text-blue-600 font-semibold tracking-wide uppercase">АвтоВиробник {manufacturer}</p> */}
           <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
-            <img className="mx-auto h-10 w-auto" src={`/images/logos/${manufacturer.toLowerCase()}.jpeg`} alt={manufacturer}/>
+            <img className="mx-auto h-10 w-auto" src={`/images/logos/${manufacturer.toLowerCase()}.svg`} alt={manufacturer}/>
             Виберіть модель {manufacturer}
           </h3>
         </div>

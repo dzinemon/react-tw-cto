@@ -1,74 +1,83 @@
 [
     {
         "model": "A4",
-        "configuration": "BASIS",
         "designation": "Audi A4 40 TFSI",
-        "price": 1090007,
+        "price": 1111045,
         "average_fuel_consumption": 5.1,
-        "horsepower": 190
+        "configuration": "BASIS",
+        "horsepower": 190,
+        "engine_displacement": 2.0
     },
     {
         "model": "A4",
-        "configuration": "BASIS",
         "designation": "Audi A4 45 TFSI quattro",
-        "price": 1211082,
+        "price": 1234458,
         "average_fuel_consumption": 7.1,
-        "horsepower": 248
-    },
-    {
-        "model": "A4",
         "configuration": "BASIS",
+        "horsepower": 248,
+        "engine_displacement": 2.0
+    },
+    {
+        "model": "A4",
         "designation": "Audi A4 40 TDI quattro",
-        "price": 1192662,
+        "price": 1215682,
         "average_fuel_consumption": 4.5,
-        "horsepower": 204
+        "configuration": "BASIS",
+        "horsepower": 204,
+        "engine_displacement": 2.0
     },
     {
         "model": "A4",
-        "configuration": "ADVANCED",
         "designation": "Audi A4 40 TFSI advanced",
-        "price": 1110237,
+        "price": 1141458,
         "average_fuel_consumption": 5.1,
-        "horsepower": 190
+        "configuration": "ADVANCED",
+        "horsepower": 190,
+        "engine_displacement": 2.0
     },
     {
         "model": "A4",
-        "configuration": "ADVANCED",
         "designation": "Audi A4 45 TFSI quattro advanced",
-        "price": 1245995,
+        "price": 1281034,
         "average_fuel_consumption": 7.1,
-        "horsepower": 248
-    },
-    {
-        "model": "A4",
         "configuration": "ADVANCED",
+        "horsepower": 248,
+        "engine_displacement": 2.0
+    },
+    {
+        "model": "A4",
         "designation": "Audi A4 40 TDI quattro advanced",
-        "price": 1189957,
+        "price": 1223419,
         "average_fuel_consumption": 4.5,
-        "horsepower": 204
+        "configuration": "ADVANCED",
+        "horsepower": 204,
+        "engine_displacement": 2.0
     },
     {
         "model": "A4",
-        "configuration": "S LINE",
         "designation": "Audi A4 40 TFSI S line",
-        "price": 1158403,
+        "price": 1180761,
         "average_fuel_consumption": 5.1,
-        "horsepower": 190
+        "configuration": "S LINE",
+        "horsepower": 190,
+        "engine_displacement": 2.0
     },
     {
         "model": "A4",
-        "configuration": "S LINE",
         "designation": "Audi A4 45 TFSI quattro S line",
-        "price": 1308543,
+        "price": 1333800,
         "average_fuel_consumption": 7.1,
-        "horsepower": 248
+        "configuration": "S LINE",
+        "horsepower": 248,
+        "engine_displacement": 2.0
     },
     {
         "model": "A4",
-        "configuration": "S LINE",
         "designation": "Audi A4 40 TDI quattro S line",
-        "price": 1230298,
+        "price": 1254044,
         "average_fuel_consumption": 4.5,
-        "horsepower": 204
+        "configuration": "S LINE",
+        "horsepower": 204,
+        "engine_displacement": 2.0
     }
 ]

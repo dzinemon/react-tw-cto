@@ -1,0 +1,42 @@
+[
+    {
+        "model": "A7 Sportback",
+        "designation": "Audi A7 45 TFSI quattro",
+        "price": 1804384,
+        "average_fuel_consumption": 7.5,
+        "configuration": "A7 SB",
+        "horsepower": 245,
+        "engine_displacement": 2.0,
+        "fuel": "petrol"
+    },
+    {
+        "model": "A7 Sportback",
+        "designation": "Audi A7 40 TDI quattro",
+        "price": 1694943,
+        "average_fuel_consumption": 4.5,
+        "configuration": "A7 SB",
+        "horsepower": 204,
+        "engine_displacement": 2.0,
+        "fuel": "diesel"
+    },
+    {
+        "model": "A7 Sportback",
+        "designation": "Audi A7 45 TFSI quattro S line",
+        "price": 1963521,
+        "average_fuel_consumption": 7.5,
+        "configuration": "A7 SB SL",
+        "horsepower": 245,
+        "engine_displacement": 2.0,
+        "fuel": "petrol"
+    },
+    {
+        "model": "A7 Sportback",
+        "designation": "Audi A7 40 TDI quattro S line",
+        "price": 1854080,
+        "average_fuel_consumption": 4.5,
+        "configuration": "A7 SB SL",
+        "horsepower": 204,
+        "engine_displacement": 2.0,
+        "fuel": "diesel"
+    }
+]

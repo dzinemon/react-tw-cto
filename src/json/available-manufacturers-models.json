@@ -3,10 +3,16 @@
     "manufacturer": "Audi",
     "models": [
       "AUDI_A4",
-      "AUDI_A4",
-      "AUDI_A4",
-      "AUDI_A4",
-      "AUDI_A4"
+      "AUDI_A6",
+      "AUDI_A7_Sportback",
+      "AUDI_A8",
+      "AUDI_Q3",
+      "AUDI_Q3_Sportback",
+      "AUDI_Q7",
+      "AUDI_Q8",
+      "AUDI_RS6_Avant",
+      "AUDI_RS7_Sportback",
+      "AUDI_RS_Q8"
     ]
   },
   {

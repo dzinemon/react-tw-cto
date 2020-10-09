@@ -141,7 +141,7 @@ function Model() {
       setDesignation(carsData[0].designation);
       setPrice(carsData[0].price);
       setHorsepower(carsData[0].horsepower);
-      setFuel(carsData[0].designation.includes("TFSI") ? "petrol" : "diesel");
+      setFuel(carsData[0].fuel);
 
     }).catch(err => {
       // Do something for an error here

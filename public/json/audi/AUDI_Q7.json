@@ -1,0 +1,52 @@
+[
+    {
+        "model": "Q7",
+        "designation": "Audi Q7 55 TFSI quattro",
+        "price": 1948342,
+        "average_fuel_consumption": 8.7,
+        "configuration": "BASIS",
+        "horsepower": 340,
+        "engine_displacement": 3.0,
+        "fuel": "petrol"
+    },
+    {
+        "model": "Q7",
+        "designation": "Audi Q7 50 TDI quattro",
+        "price": 1883399,
+        "average_fuel_consumption": 6.6,
+        "configuration": "BASIS",
+        "horsepower": 286,
+        "engine_displacement": 3.0,
+        "fuel": "diesel"
+    },
+    {
+        "model": "Q7",
+        "designation": "Audi Q7 55 TFSI quattro S line",
+        "price": 2078863,
+        "average_fuel_consumption": 8.7,
+        "configuration": "S LINE",
+        "horsepower": 340,
+        "engine_displacement": 3.0,
+        "fuel": "petrol"
+    },
+    {
+        "model": "Q7",
+        "designation": "Audi Q7 50 TDI quattro S line",
+        "price": 2013880,
+        "average_fuel_consumption": 6.6,
+        "configuration": "S LINE",
+        "horsepower": 286,
+        "engine_displacement": 3.0,
+        "fuel": "diesel"
+    },
+    {
+        "model": "Q7",
+        "designation": "Audi SQ7 TDI quattro",
+        "price": 2735842,
+        "average_fuel_consumption": 7.4,
+        "configuration": "SQ7",
+        "horsepower": 435,
+        "engine_displacement": 4.0,
+        "fuel": "diesel"
+    }
+]

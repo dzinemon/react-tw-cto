@@ -6,7 +6,8 @@
         "average_fuel_consumption": 5.1,
         "configuration": "BASIS",
         "horsepower": 190,
-        "engine_displacement": 2.0
+        "engine_displacement": 2.0,
+        "fuel": "petrol"
     },
     {
         "model": "A4",
@@ -15,7 +16,8 @@
         "average_fuel_consumption": 7.1,
         "configuration": "BASIS",
         "horsepower": 248,
-        "engine_displacement": 2.0
+        "engine_displacement": 2.0,
+        "fuel": "petrol"
     },
     {
         "model": "A4",
@@ -24,7 +26,8 @@
         "average_fuel_consumption": 4.5,
         "configuration": "BASIS",
         "horsepower": 204,
-        "engine_displacement": 2.0
+        "engine_displacement": 2.0,
+        "fuel": "diesel"
     },
     {
         "model": "A4",
@@ -33,7 +36,8 @@
         "average_fuel_consumption": 5.1,
         "configuration": "ADVANCED",
         "horsepower": 190,
-        "engine_displacement": 2.0
+        "engine_displacement": 2.0,
+        "fuel": "petrol"
     },
     {
         "model": "A4",
@@ -42,7 +46,8 @@
         "average_fuel_consumption": 7.1,
         "configuration": "ADVANCED",
         "horsepower": 248,
-        "engine_displacement": 2.0
+        "engine_displacement": 2.0,
+        "fuel": "petrol"
     },
     {
         "model": "A4",
@@ -51,7 +56,8 @@
         "average_fuel_consumption": 4.5,
         "configuration": "ADVANCED",
         "horsepower": 204,
-        "engine_displacement": 2.0
+        "engine_displacement": 2.0,
+        "fuel": "diesel"
     },
     {
         "model": "A4",
@@ -60,7 +66,8 @@
         "average_fuel_consumption": 5.1,
         "configuration": "S LINE",
         "horsepower": 190,
-        "engine_displacement": 2.0
+        "engine_displacement": 2.0,
+        "fuel": "petrol"
     },
     {
         "model": "A4",
@@ -69,7 +76,8 @@
         "average_fuel_consumption": 7.1,
         "configuration": "S LINE",
         "horsepower": 248,
-        "engine_displacement": 2.0
+        "engine_displacement": 2.0,
+        "fuel": "petrol"
     },
     {
         "model": "A4",
@@ -78,6 +86,7 @@
         "average_fuel_consumption": 4.5,
         "configuration": "S LINE",
         "horsepower": 204,
-        "engine_displacement": 2.0
+        "engine_displacement": 2.0,
+        "fuel": "diesel"
     }
 ]

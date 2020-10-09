@@ -16,7 +16,7 @@ function CarInfo(props) {
   let { image } = props;
 
   return (
-    <div className="xl:container mx-auto">
+    <div className="xl:container mx-auto mb-3">
       <div className="px-4 my-4">
         <h1 className="font-semibold text-lg sm:text-3xl text-gray-700">
           Вартість володіння 
@@ -30,14 +30,20 @@ function CarInfo(props) {
 
       <div className="flex flex-wrap">
         <div className="w-full sm:w-1/2 px-4">
-          <img src={image} alt={props.designation} />
-          {/* <span className="text-blue-500 hover:text-blue-700 hover:underline">Photos</span> */}
+          <div className="position relative"
+            style={{
+              paddingBottom: '56.25%',
+              backgroundImage: 'url(../logo192.png)',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: '60px',
+              backgroundPosition: 'center center',
+            }}>
+            <div className="postion absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
+              <img src={image} alt={props.designation} />
+            </div>
+          </div>
         </div>
         <div className="w-full sm:w-1/2 px-4">
-          {/* <div className="text-lg sm:text-xl text-gray-700 font-semibold">
-            Загальна Вартість володіння за <strong>5</strong> років
-          </div> */}
-
           <div className="my-6">
             <label className="block text-gray-700 text-xs mb-2" htmlFor="model">
               Комплектація:

@@ -3,15 +3,24 @@ import React from 'react';
 import ManufacturersAndModels from '../json/available-manufacturers-models.json'
 import { Link } from 'react-router-dom'
 
+
+
 function HomeHero() {
 
+  
+
   const manufacturers = ManufacturersAndModels.map((i, idx) => {
+    let imageFormat = 'svg';
+
+    if (i.manufacturer.toLowerCase() === 'audi') {
+      imageFormat = `png`
+    } 
     return (
         <div key={idx} className="w-64 p-4">
           <Link to={`/${i.manufacturer.toLowerCase()}`} className="block hover:text-blue-800 transition transition-transform hover:scale-105 transform duration-500 ">
           <div className="max-w-xs rounded overflow-hidden">
             <div className="flex flex-col h-12 justify-center mx-auto w-12">
-              <img className="object-contain  object-center" src={`/images/logos/${i.manufacturer.toLowerCase()}.svg`} alt={i.manufacturer}/>
+              <img className="object-contain  object-center" src={`/images/logos/${i.manufacturer.toLowerCase()}.${imageFormat}`} alt={i.manufacturer}/>
             </div>
             <div className="px-3 py-2 text-center">
               <div className="font-bold text-base md:text-xl">{i.manufacturer}</div>

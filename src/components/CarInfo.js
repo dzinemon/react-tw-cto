@@ -21,8 +21,8 @@ function CarInfo(props) {
         <h1 className="font-semibold text-lg sm:text-3xl text-gray-700">
           Вартість володіння 
           <span> {props.designation} </span>
-          <span className=""> {props.configuration}</span>
-          <span className=""> {props.horsepower} к.с.</span>
+          {/* <span className=""> {props.configuration}</span> */}
+          {/* <span className=""> {props.horsepower} к.с.</span> */}
           <span> за <strong>5</strong> років</span>
         </h1>
         <span className="text-blue-500"></span>

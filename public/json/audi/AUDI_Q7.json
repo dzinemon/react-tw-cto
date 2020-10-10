@@ -2,7 +2,7 @@
     {
         "model": "Q7",
         "designation": "Audi Q7 55 TFSI quattro",
-        "price": 1948342,
+        "price": 1948928,
         "average_fuel_consumption": 8.7,
         "configuration": "BASIS",
         "horsepower": 340,
@@ -12,7 +12,7 @@
     {
         "model": "Q7",
         "designation": "Audi Q7 50 TDI quattro",
-        "price": 1883399,
+        "price": 1883965,
         "average_fuel_consumption": 6.6,
         "configuration": "BASIS",
         "horsepower": 286,
@@ -22,7 +22,7 @@
     {
         "model": "Q7",
         "designation": "Audi Q7 55 TFSI quattro S line",
-        "price": 2078863,
+        "price": 2079488,
         "average_fuel_consumption": 8.7,
         "configuration": "S LINE",
         "horsepower": 340,
@@ -32,7 +32,7 @@
     {
         "model": "Q7",
         "designation": "Audi Q7 50 TDI quattro S line",
-        "price": 2013880,
+        "price": 2014486,
         "average_fuel_consumption": 6.6,
         "configuration": "S LINE",
         "horsepower": 286,
@@ -42,7 +42,7 @@
     {
         "model": "Q7",
         "designation": "Audi SQ7 TDI quattro",
-        "price": 2735842,
+        "price": 2736665,
         "average_fuel_consumption": 7.4,
         "configuration": "SQ7",
         "horsepower": 435,

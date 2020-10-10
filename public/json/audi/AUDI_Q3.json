@@ -2,7 +2,7 @@
     {
         "model": "Q3",
         "designation": "Audi Q3 35 TFSI",
-        "price": 1013792,
+        "price": 1014097,
         "average_fuel_consumption": 7.0,
         "configuration": "BASIS",
         "horsepower": 150,
@@ -12,7 +12,7 @@
     {
         "model": "Q3",
         "designation": "Audi Q3 40 TFSI quattro",
-        "price": 1184385,
+        "price": 1184741,
         "average_fuel_consumption": 8.0,
         "configuration": "BASIS",
         "horsepower": 180,
@@ -22,7 +22,7 @@
     {
         "model": "Q3",
         "designation": "Audi Q3 35 TFSI advanced",
-        "price": 1046412,
+        "price": 1046727,
         "average_fuel_consumption": 7.0,
         "configuration": "ADVANCED",
         "horsepower": 150,
@@ -32,7 +32,7 @@
     {
         "model": "Q3",
         "designation": "Audi Q3 40 TFSI quattro advanced",
-        "price": 1217026,
+        "price": 1217392,
         "average_fuel_consumption": 8.0,
         "configuration": "ADVANCED",
         "horsepower": 180,
@@ -42,7 +42,7 @@
     {
         "model": "Q3",
         "designation": "Audi Q3 35 TFSI S line",
-        "price": 1079790,
+        "price": 1080115,
         "average_fuel_consumption": 7.0,
         "configuration": "S LINE",
         "horsepower": 150,
@@ -52,7 +52,7 @@
     {
         "model": "Q3",
         "designation": "Audi Q3 40 TFSI quattro S line",
-        "price": 1250362,
+        "price": 1250738,
         "average_fuel_consumption": 8.0,
         "configuration": "S LINE",
         "horsepower": 180,

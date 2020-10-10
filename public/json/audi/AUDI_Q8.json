@@ -2,7 +2,7 @@
     {
         "model": "Q8",
         "designation": "Audi Q8 55 TFSI quattro",
-        "price": 1893990,
+        "price": 1894559,
         "average_fuel_consumption": 7.2,
         "configuration": "Q8",
         "horsepower": 340,
@@ -12,7 +12,7 @@
     {
         "model": "Q8",
         "designation": "Audi Q8 50 TDI quattro",
-        "price": 1860003,
+        "price": 1860562,
         "average_fuel_consumption": 6.6,
         "configuration": "Q8",
         "horsepower": 286,
@@ -22,7 +22,7 @@
     {
         "model": "Q8",
         "designation": "Audi Q8 55 TFSI quattro S line",
-        "price": 2205501,
+        "price": 2206164,
         "average_fuel_consumption": 7.2,
         "configuration": "Q8 SL",
         "horsepower": 340,
@@ -32,7 +32,7 @@
     {
         "model": "Q8",
         "designation": "Audi Q8 50 TDI quattro S line",
-        "price": 2178031,
+        "price": 2178686,
         "average_fuel_consumption": 6.6,
         "configuration": "Q8 SL",
         "horsepower": 286,
@@ -42,7 +42,7 @@
     {
         "model": "Q8",
         "designation": "Audi SQ8 TDI quattro",
-        "price": 2739997,
+        "price": 2740820,
         "average_fuel_consumption": 7.8,
         "configuration": "SQ8",
         "horsepower": 435,

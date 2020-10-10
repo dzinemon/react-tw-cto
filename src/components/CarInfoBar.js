@@ -8,7 +8,7 @@ function CarInfoBar(props) {
         <p className="text-gray-700 font-semibold text-lg sm:text-2xl">
           Обрана модель:  
           <span> {props.designation} </span>
-          <span className=""> {props.configuration}</span>
+          {/* <span className=""> {props.configuration}</span> */}
           <span className=""> {props.horsepower} к.с.</span>
           
         </p>

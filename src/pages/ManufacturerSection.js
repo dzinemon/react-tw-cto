@@ -16,7 +16,7 @@ function ManufacturerSection(props) {
 
   if (manufacturer.toLowerCase() === 'audi') {
     manufacturerLogoFormat = `png`;
-    modelImageFormat = 'png';
+    // modelImageFormat = 'png';
   } 
 
   let models;

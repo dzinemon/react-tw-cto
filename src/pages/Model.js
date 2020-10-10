@@ -41,12 +41,7 @@ function Model() {
   const vehicleType = "car";
   const wheelSize = "R18";
 
-  
   let modelImageFormat = 'jpg';
-  if (param_manufacturer.toLowerCase() === 'audi') {    
-    modelImageFormat = 'png';
-  } 
-
 
   const image = `../images/${param_manufacturer.toLowerCase()}/${param_model}_0.${modelImageFormat}`;
 

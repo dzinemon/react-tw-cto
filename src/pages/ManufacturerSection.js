@@ -11,10 +11,12 @@ function ManufacturerSection(props) {
   const { manufacturer } = props;
 
   let modelsArray = ManufacturersAndModels.filter(i => i.manufacturer.toLowerCase() === props.manufacturer.toLowerCase())
-  let imageFormat = 'svg';
+  let manufacturerLogoFormat = 'svg';
+  let modelImageFormat = 'jpg';
 
   if (manufacturer.toLowerCase() === 'audi') {
-    imageFormat = `png`
+    manufacturerLogoFormat = `png`;
+    modelImageFormat = 'png';
   } 
 
   let models;
@@ -29,7 +31,7 @@ function ManufacturerSection(props) {
         <div key={idx} className="mb-2 sm:mb-0">
           <Link to={`${manufacturer}/${i}`} className="text-blue-600 hover:text-blue-800 capitalize font-bold">
             
-            <CarCardItem image={`../images/${manufacturer.toLowerCase()}/${i}_0.jpg`} modelName={i.toUpperCase().replaceAll('_', ' ')} />
+            <CarCardItem image={`../images/${manufacturer.toLowerCase()}/${i}_0.${modelImageFormat}`} modelName={i.toUpperCase().replaceAll('_', ' ')} />
           </Link>
         </div>
       )
@@ -43,7 +45,7 @@ function ManufacturerSection(props) {
         <div className="lg:text-center">
         {/* <p className="text-base leading-6 text-blue-600 font-semibold tracking-wide uppercase">АвтоВиробник {manufacturer}</p> */}
           <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
-            <img className="mx-auto h-10 w-auto" src={`/images/logos/${manufacturer.toLowerCase()}.${imageFormat}`} alt={manufacturer}/>
+            <img className="mx-auto h-10 w-auto" src={`/images/logos/${manufacturer.toLowerCase()}.${manufacturerLogoFormat}`} alt={manufacturer}/>
             Виберіть модель {manufacturer}
           </h3>
         </div>

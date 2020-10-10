@@ -32,15 +32,9 @@ function CarInfo(props) {
         <div className="w-full sm:w-1/2 px-4">
           <div className="position relative"
             style={{
-              paddingBottom: '56.25%',
-              backgroundImage: 'url(../logo192.png)',
-              backgroundRepeat: 'no-repeat',
-              backgroundSize: '60px',
-              backgroundPosition: 'center center',
+              paddingBottom: '56.25%'
             }}>
-            <div className="postion absolute top-0 left-0 bottom-0 right-0 overflow-hidden">
-              <img src={image} alt={props.designation} />
-            </div>
+            <img src={image} alt={props.designation} className="postion absolute w-full h-full object-cover object-center" />
           </div>
         </div>
         <div className="w-full sm:w-1/2 px-4">

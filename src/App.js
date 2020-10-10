@@ -35,12 +35,6 @@ function App() {
         <meta name="theme-color" content="#008f68" />
       </Helmet>
         <Nav />
-        {/* <Breadcrumbs
-            manufacturer={manufacturer}
-            model={model}
-            designation={designation}
-          /> */}
-  
         <Switch>
           <Route exact path="/:param_manufacturer/:param_model">
             <Model />

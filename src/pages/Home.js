@@ -1,7 +1,6 @@
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import HomeHero from './HomeHero'
-// import HomeManufacturers from './HomeManufacturers'
 
 function Home() {
   return (
@@ -14,7 +13,6 @@ function Home() {
       <div>
         <hr className="border-top border-blue-600"/>
         <HomeHero/>
-        {/* <HomeManufacturers/> */}
       </div>
     </HelmetProvider>
   )

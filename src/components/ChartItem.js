@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import formatNumber from '../utils/formatNumber'
 import calculatePercentage from '../utils/calculatePercentage';
 import {NAMING} from '../hardcoded'

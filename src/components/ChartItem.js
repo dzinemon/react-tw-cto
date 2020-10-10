@@ -15,10 +15,6 @@ function ChartItem(props) {
 
   const cp = `${calculatePercentage(parameter,costOfOwn)}%`;
 
-  useEffect(() => {
-    
-  })
-
   return (
     <div 
       className={`w-0

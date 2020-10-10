@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import formatNumber from '../utils/formatNumber'
 import calculatePercentage from '../utils/calculatePercentage';
 import {NAMING} from '../hardcoded'
@@ -15,15 +15,21 @@ function ChartItem(props) {
 
   const cp = `${calculatePercentage(parameter,costOfOwn)}%`;
 
+  useEffect(() => {
+    
+  })
+
   return (
     <div 
-      className={`
-        chart-item flex 
+      className={`w-0
+        duration-1000
+        chart-item flex flex-sart 
         sm:flex-col${isOdd? `-reverse sm:self-auto self-end`: ` flex-row-reverse sm:self-auto self-start`} 
         sm:flex-col sm:justify-end`} 
       style={{
         height: isMobile? cp : 'auto',
-        width: isMobile? 'auto' : cp
+        width: isMobile? 'auto' : cp,
+        transitionProperty: isMobile? 'height' : 'width'
       }}
       >
       <div className={`chart-bar bg-blue-${colorTone}00 sm:h-12 h-auto w-24 sm:w-auto`}></div>

@@ -25,7 +25,8 @@ import FeedbackForm from "./components/FeedbackForm";
 import "./App.css";
 
 ReactGA.initialize('UA-180287299-1');
-// ReactGA.pageview(window.location.pathname + window.location.search);
+ReactGA.set({ page: location.pathname }); // Update the user's current page
+ReactGA.pageview(location.pathname); // Record a pageview for the given page
 
 const history = createBrowserHistory();
 

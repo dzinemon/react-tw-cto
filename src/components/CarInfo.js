@@ -64,8 +64,8 @@ function CarInfo(props) {
                 Вартість володіння <sup>*</sup>
               </p>
               <div className="text-gray-800 text-xl sm:text-3xl font-bold">
-                {currentCostOfOwn}{" "}
-                <span className="text-gray-70 text-lg">грн</span>
+                <span className="text-gray-700 text-xs">від </span>{currentCostOfOwn}{" "}
+                <span className="text-gray-700 text-lg">грн</span>
               </div>
               <div className="text-xs leading-none text-gray-800">
                 <sup>*</sup> Всі витрати на утримання
@@ -76,7 +76,7 @@ function CarInfo(props) {
                 Ціна нового автомобіля <sup>**</sup>
               </p>
               <div className="text-blue-100 text-xl sm:text-3xl font-bold">
-                {currentPriceStr}{" "}
+                <span className="text-gray-100 text-xs">від </span>{currentPriceStr}{" "}
                 <span className="text-gray-100 text-lg">грн</span>
               </div>
               <div className="text-xs leading-none text-gray-100">

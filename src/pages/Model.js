@@ -167,13 +167,10 @@ function Model() {
     setHorsepower(updatedCar[el].horsepower);
     setFuel(updatedCar[el].fuel);
 
-    console.log(updatedCar[el].hasOwnProperty('wheel'))
     if (updatedCar[el].hasOwnProperty('wheel')) {
       setWheelSize(updatedCar[el].wheel.radius);
     } 
   }
-
-  console.log('wheelSize: ', wheelSize)
   // tax
   const taxExpensesArray = new Array(5);
   taxExpensesArray[0] = taxesToPay(price) + Number(PLATE_EXPENSES);

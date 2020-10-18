@@ -4,9 +4,9 @@ function SelectDropdown(props) {
 
   const CarsArray = Array.from(props.cars);
 
-  const options = CarsArray.map((i,idx) => {
+  const options = CarsArray.filter(i => typeof i.model === 'string').map((i,idx) => {
     return (
-      <option key={idx.toString()} value={i.designation}>{i.designation}</option>
+      <option key={idx} value={idx}>{i.designation} {i.configuration} {i.engine_displacement}л ({i.horsepower} к.с.)</option>
     )
   })
 

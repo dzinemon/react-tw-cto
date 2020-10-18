@@ -39,7 +39,6 @@ function Model() {
   // console.log(param_manufacturer)
   // console.log(param_model)
   const vehicleType = "car";
-  const wheelSize = "R18";
 
   let modelImageFormat = 'jpg';
 
@@ -84,6 +83,52 @@ function Model() {
   const [parking, setParking] = useState("free");
   const [carwash, setCarWash] = useState(0);
   const [wheels, setWheels] = useState("tyresNo");
+  
+  // const [ otherExpenses, setOtherExpenses ] = useState(0)
+  const [model, setModel] = useState();
+  const [average_fuel_consumption, setAFC] = useState(
+    0
+  );
+  const [configuration, setConfiguration] = useState('');
+  const [designation, setDesignation] = useState('');
+  const [price, setPrice] = useState(0);
+  const [horsepower, setHorsepower] = useState(0);
+  const [fuel, setFuel] = useState('petrol');
+  const [hasFullInsurance, setInsurance] = useState(true);
+  const [wheelSize, setWheelSize] = useState('16');
+
+  const url = `../json/${param_manufacturer.toLowerCase()}/${param_model}.json`;
+
+  useEffect(() => {
+    fetch(url).then(response => {
+      // console.log(response);
+      
+      return response.text();
+    }).then(data => {
+      const carsData0 = JSON.parse(data);
+      const carsData = carsData0.filter(i => typeof i.model === 'string');
+      setCars(carsData);
+      setModel(carsData[0].model);
+      setAFC(carsData[0].average_fuel_consumption);
+      setConfiguration(carsData[0].configuration);
+      setDesignation(carsData[0].designation);
+      setPrice(carsData[0].price);
+      setHorsepower(carsData[0].horsepower);
+      setFuel(carsData[0].fuel);
+
+      if (carsData[0].hasOwnProperty('wheel')) {
+        setWheelSize(carsData[0].wheel.radius);
+      }
+
+    }).catch(err => {
+      // Do something for an error here
+      console.log("Error Reading data " + err);
+    });
+  }, [url])
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [ ] );
 
   const parkingExpenses = parking === "free" ? 0 : parkingPrice * 12;
   const parkingExpensesArray = new Array(5);
@@ -111,62 +156,24 @@ function Model() {
     return otherExpensesArray.push(cur);
   });
 
-  // const [ otherExpenses, setOtherExpenses ] = useState(0)
-  const [model, setModel] = useState();
-  const [average_fuel_consumption, setAFC] = useState(
-    0
-  );
-  const [configuration, setConfiguration] = useState('');
-  const [designation, setDesignation] = useState('');
-  const [price, setPrice] = useState(0);
-  const [horsepower, setHorsepower] = useState(0);
-  const [fuel, setFuel] = useState('petrol');
-  const [hasFullInsurance, setInsurance] = useState(true);
-
-  const url = `../json/${param_manufacturer.toLowerCase()}/${param_model}.json`;
-
-  useEffect(() => {
-    fetch(url).then(response => {
-      // console.log(response);
-      
-      return response.text();
-    }).then(data => {
-      // Work with JSON data here
-      // console.log(JSON.parse(data));
-
-      const carsData = JSON.parse(data);
-      setCars(carsData);
-
-      setModel(carsData[0].model);
-      setAFC(carsData[0].average_fuel_consumption);
-      setConfiguration(carsData[0].configuration);
-      setDesignation(carsData[0].designation);
-      setPrice(carsData[0].price);
-      setHorsepower(carsData[0].horsepower);
-      setFuel(carsData[0].fuel);
-
-    }).catch(err => {
-      // Do something for an error here
-      console.log("Error Reading data " + err);
-    });
-  }, [url])
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [ ] );
-
 
   function updateCar(el) {
-    let updatedCar = cars.filter((i) => i.designation === el);
-    setModel(updatedCar[0].model);
-    setAFC(updatedCar[0].average_fuel_consumption);
-    setConfiguration(updatedCar[0].configuration);
-    setDesignation(updatedCar[0].designation);
-    setPrice(updatedCar[0].price);
-    setHorsepower(updatedCar[0].horsepower);
-    setFuel(updatedCar[0].designation.includes("TFSI") ? "petrol" : "diesel");
+    let updatedCar = cars.filter(i => typeof i.model === 'string');
+    setModel(updatedCar[el].model);
+    setAFC(updatedCar[el].average_fuel_consumption);
+    setConfiguration(updatedCar[el].configuration);
+    setDesignation(updatedCar[el].designation);
+    setPrice(updatedCar[el].price);
+    setHorsepower(updatedCar[el].horsepower);
+    setFuel(updatedCar[el].fuel);
+
+    console.log(updatedCar[el].hasOwnProperty('wheel'))
+    if (updatedCar[el].hasOwnProperty('wheel')) {
+      setWheelSize(updatedCar[el].wheel.radius);
+    } 
   }
 
+  console.log('wheelSize: ', wheelSize)
   // tax
   const taxExpensesArray = new Array(5);
   taxExpensesArray[0] = taxesToPay(price) + Number(PLATE_EXPENSES);

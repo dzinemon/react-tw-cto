@@ -55,5 +55,20 @@
       "BMW_X7_G07",
       "BMW_Z4_G29"
     ]
+  },
+  {
+    "manufacturer": "Renault",
+    "models": [
+      "Renault_DOKKER",
+      "Renault_DUSTER",
+      "Renault_KADJAR",
+      "Renault_KOLEOS",
+      "Renault_LODGY",
+      "Renault_LOGAN MCV",
+      "Renault_LOGAN",
+      "Renault_MEGANE Sedan",
+      "Renault_SANDERO Stepway",
+      "Renault_SANDERO"
+    ]
   }
 ]

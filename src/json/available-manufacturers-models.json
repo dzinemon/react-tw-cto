@@ -70,5 +70,26 @@
       "Renault_SANDERO Stepway",
       "Renault_SANDERO"
     ]
+  },
+  {
+    "manufacturer": "Mazda",
+    "models": [
+      "mazda_3 HATCHBACK",
+      "mazda_3 SEDAN",
+      "mazda_6 SEDAN",
+      "mazda_CX-3",
+      "mazda_CX-30",
+      "mazda_CX-5",
+      "mazda_CX-9",
+      "mazda_MX-5 RF"
+    ]
+  },
+  {
+    "manufacturer": "Nissan",
+    "models": [
+      "nissan_navara",
+      "nissan_qashqai",
+      "nissan_x-trail"
+    ]
   }
 ]
